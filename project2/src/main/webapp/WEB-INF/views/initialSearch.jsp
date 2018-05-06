@@ -39,6 +39,22 @@
         ======================================================= -->
 </head>
 <body>
+
+
+	<!-- ByAlessio, al momento lo inserisco qui in quanto con questa config non sono in grado di 
+	puntare ad index, trovandosi ad un livello superiore rispetto a WEB-INF -->
+	<% 
+	if( request.getAttribute("authenticated") != null && (Boolean)request.getAttribute("authenticated") == true){
+	%>
+	<script type="text/javascript">
+		alert("Nuovo utente correttamente registrato! controlla la mail..");
+	</script>	
+	<%	
+	}
+	%>
+
+
+
 	<div id="wrapper" class="boxed">
 		<!-- toggle top area -->
 		<div class="hidden-top">
@@ -182,9 +198,6 @@
 			<!-- Template Custom JavaScript File -->
 			<script src="js/custom.js"></script>
 			
-			
-			
-			
-			
+
 </body>
 </html>
