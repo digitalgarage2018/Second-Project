@@ -94,7 +94,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<%}
 								else {
 					%>
-					<li><a class="color1" href="/productController">Prodotti</a>
+					<li><a class="color1" href="productController">Prodotti</a>
 
 					</li>
 						<%
