@@ -53,6 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="header-left">
 
+                <!--
                 <div class="search-box">
                     <div id="sb-search" class="sb-search">
                         <form action="SearchController" method="post">
@@ -62,6 +63,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </form>
                     </div>
                 </div>
+                -->
 
                 <!-- search-scripts -->
 
@@ -79,7 +81,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <a href="index.jsp">
                             <div class="total">
                                 <span class="simpleCart_total"></span> </div>
-                            <img src="images/cart.png" alt=""/>
+                            <img src="resources/images/cart.png" alt=""/>
                         </a>
                         <p><a href="javascript:" class="simpleCart_empty">Carrello Vuoto</a></p>
 
@@ -170,13 +172,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                     <div class="col-md-3 bottom-cd simpleCart_shelfItem product-card">
                         <div class="product-at ">
-                            <%
-                                if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
-                            %>
-                            <img class="img-responsive" src="${product.p_image}" alt="">
-                            <div class="pro-grid">
-                                <button type="button" class="btn btn-info btn-mn" data-toggle="modal" data-target="#myModal${vs.index} ">ACQUISTA</button>
-                            </div>
+
+                                <img class="img-responsive" src="${product.p_image}" alt="">
+                                <div class="pro-grid"><button type="button" class="btn btn-info btn-mn" data-toggle="modal" data-target="#myModal${vs.index} ">ACQUISTA</button>
+                                </div>
 
                             <!-- Modal -->
                             <div class="modal fade" id="myModal${vs.index}" role="dialog">
@@ -184,74 +183,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <!-- Modal content-->
                                     <div class="modal-content">
-                                        <div class="modal-header">
+                                        <div class="modal-header" style="background:#c4b7a6;">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                                             <h4 class="modal-title"><c:out value="${product.p_name}" /></h4>
                                         </div>
-                                        <div class="modal-body">
-                                            <p> <c:out value="${sproduct.p_description}" /></p>
+                                        <div class="modal-body" style="background:#e6e2d3;">
+                                            <p style="color:black;">
+                                                <span > </span>
+                                                <c:out value="${product.p_description}" /> <br>  <br>
+                                                <span > Servizio in cui hai usufruito del prodotto:</span>
+                                                <c:out value="${product.p_service}"/> <br>
+                                                <span > Prezzo:</span>
+                                                <c:out value="${product.p_price} $"/> <br>
+                                            </p>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Acquista</button>
+                                        <div class="modal-footer" style="background:#c4b7a6;">
+                                            <button type="button" style="background-color: #555555;" class="btn btn-primary center-block">Acquista</button>
 
                                         </div>
                                     </div>
 
                                 </div>
-                                <%}
-
-                                else {
-                                %>
-                                <img class="img-responsive" src="${product.p_image}" alt="">
-                                <div class="pro-grid"><button type="button" class="btn btn-info btn-mn" data-toggle="modal" data-target="#myModal${vs.index} ">ACQUISTA</button>
-                                </div>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal${vs.index}" role="dialog">
-                                    <div class="modal-dialog">
-
-                                        <!-- Modal content-->
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                                <h4 class="modal-title"><c:out value="${sproduct.p_name}" /></h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <p> <c:out value="${product.p_description}" /></p>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Acquista</button>
-
-                                            </div>
-                                        </div>
-
-                                    </div>
-                                </div>
-
-                                <%
-                                    }
-                                %>
                             </div>
+
+
+
                             <p class="tun">
                             <span>
                                 <c:out value="${product.p_name}" />
-                            </span><br>
-                                <c:out value="${product.p_service}" />
+                            </span>
+
                             </p>
                             <div class="ca-rt">
                                 <a href="#" class="item_add"><p class="number item_price"><i> </i>
-                                            <%
-                                    if ((session.getAttribute("user") == null) || (session.getAttribute("user") == "")) {
-                                %>
+                                    $ <c:out value="${product.p_price}" /> </p></a>
                             </div>
-                            <p></p>
-                            <%}
-                            else {
-                            %>
-                            $ <c:out value="${product.p_price}" /> </p></a>
-                            <%
-                                }
-                            %>
+
+
                         </div>
                     </div>
                 </c:forEach>

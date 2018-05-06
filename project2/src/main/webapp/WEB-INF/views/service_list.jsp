@@ -269,7 +269,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <c:out value="${service.sr_name}" />
                             </span><br>
                             <c:out value="${service.sr_type}" />
-                            <br>Durata: <c:out value="${service.sr_time}" /> minuti
+
                             
                         </p>
                         <div class="ca-rt">
