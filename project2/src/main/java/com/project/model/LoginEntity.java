@@ -1,22 +1,31 @@
 package com.project.model;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table (name="USERS")
 public class LoginEntity implements Serializable{
-	
+/*
+    @JoinTable
+    @ManyToMany(mappedBy = "users")
+    private List<ServiceEntity> listService;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "USER_SERVICE",
+            joinColumns = {@JoinColumn(name = "UID", referencedColumnName = "u_username")}
+            inverseJoinColumns={@JoinColumn(name="SID", referencedColumnName="sr_serviceID)})
+            private LoginEntity ser;
+*/
+
 	@Id
 	private String u_username;
 
-	
     @NotEmpty
     @Column(name="u_pword", nullable=false)
     private String u_pword;
@@ -40,10 +49,30 @@ public class LoginEntity implements Serializable{
     @NotEmpty
     @Column(name="u_born_place", nullable=false)
     private String u_born_place;
-    
-    @Column(name="u_wallet_address")
-    private String u_wallet_address;
-    
+
+    @ManyToMany
+	private List<ServiceEntity> serviceList;
+
+	@Column(name="u_wallet_address")
+	private String u_wallet_address;
+
+/*
+    @Id
+	@OneToMany(cascade=CascadeType.ALL)
+	@JoinColumn(name="u_username")
+	private Set<PurchaseServEntity> purchServ;
+    */
+
+	//creation of the join table, the foreign keys are implicit in the column
+	/*@ManyToMany//(targetEntity = ServiceEntity.class, mappedBy = "LoginEntity")
+	@JoinTable(name="USERS_SERVICES",
+			joinColumns = {@JoinColumn(name = "u_usernameQ",referencedColumnName = "u_username")},
+			inverseJoinColumns = {@JoinColumn(name = "sr_serviceIDQ", referencedColumnName = "sr_serviceID")})
+	public List<ServiceEntity> getListServices() {
+		return listServices;
+	}*/
+
+
  
 	public String getUsername() {
 		return u_username;
@@ -100,7 +129,7 @@ public class LoginEntity implements Serializable{
 	public void setBorn_place(String u_born_place) {
 		this.u_born_place = u_born_place;
 	}
-	
+
 	public String getWalletAddress() {
 		return u_wallet_address;
 	}
@@ -108,5 +137,6 @@ public class LoginEntity implements Serializable{
 	public void setWalletAddress(String u_wallet_address) {
 		this.u_wallet_address = u_wallet_address;
 	}
-	
+
+
 }

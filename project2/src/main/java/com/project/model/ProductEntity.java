@@ -1,83 +1,83 @@
 package com.project.model;
 
 import org.hibernate.validator.constraints.NotEmpty;
-import java.io.Serializable;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-@Table (name="PRODUCTS")
+@Table (name = "PRODUCTS")
 public class ProductEntity implements Serializable {
 
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private long product_id;
+    private long p_product_id;
 
     @NotEmpty
     @Column(name="p_name", nullable=false)
-    private String name;
+    private String p_name;
 
     @NotEmpty
     @Column(name="p_description", nullable=false)
-    private String description;
+    private String p_description;
 
     @NotEmpty
     @Column(name="p_service", nullable=false)
-    private String service;
+    private String p_service;
 
     @NotEmpty
     @Column(name="p_image", nullable=false)
-    private String image;
+    private String p_image;
 
     @NotEmpty
     @Column(name="p_price", nullable=false)
-    private int price;
+    private int p_price;
 
-    public long getProduct_id() {
-        return product_id;
+    public long getP_product_id() {
+        return p_product_id;
     }
 
-    public void setProduct_id(int product_id) {
-        this.product_id = product_id;
+    public void setP_product_id(long p_product_id) {
+        this.p_product_id = p_product_id;
     }
 
-    public String getName() {
-        return name;
+    public String getP_name() {
+        return p_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setP_name(String p_name) {
+        this.p_name = p_name;
     }
 
-    public String getDescription() {
-        return description;
+    public String getP_description() {
+        return p_description;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setP_description(String p_description) {
+        this.p_description = p_description;
     }
 
-    public String getService() {
-        return service;
+    public String getP_service() {
+        return p_service;
     }
 
-    public void setService(String service) {
-        this.service = service;
+    public void setP_service(String p_service) {
+        this.p_service = p_service;
     }
 
-    public String getImage() {
-        return image;
+    public String getP_image() {
+        return p_image;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setP_image(String p_image) {
+        this.p_image = p_image;
     }
 
-    public int getPrice() {
-        return price;
+    public int getP_price() {
+        return p_price;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setP_price(int p_price) {
+        this.p_price = p_price;
     }
 }
