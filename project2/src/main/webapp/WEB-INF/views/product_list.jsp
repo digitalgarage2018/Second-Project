@@ -110,7 +110,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <%
                         }
                     %>
-                    <li class="grid"><a class="color2" href="ServiceController">Servizi</a> </li>
+                    <li class="grid"><a class="color2" href="serviceController">Servizi</a> </li>
 
                     <%
 
