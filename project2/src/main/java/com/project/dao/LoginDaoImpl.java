@@ -3,9 +3,10 @@ package com.project.dao;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-
+import javax.persistence.PersistenceException;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.CannotCreateTransactionException;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.project.model.LoginEntity;
@@ -21,7 +22,7 @@ public class LoginDaoImpl implements LoginDao {
 		return entityManager.find(LoginEntity.class, username);
 	 }
 
-	 public String registerUser(LoginEntity signUpBean){
+	 public String registerUser(LoginEntity signUpBean) throws PersistenceException,CannotCreateTransactionException{
 		 String query = "insert into USERS (u_username,u_pword,u_email,u_name,u_surname,u_born_date,u_born_place) values (?,?,?,?,?,?,?);";
 		 
 		 entityManager.createNativeQuery(query).setParameter(1, signUpBean.getUsername())

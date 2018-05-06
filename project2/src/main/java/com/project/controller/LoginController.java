@@ -1,33 +1,27 @@
 package com.project.controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import com.project.model.LoginEntity;
-import com.project.service.LoginService;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.servlet.ModelAndView;
+
+import com.project.model.LoginEntity;
+import com.project.service.LoginService;
 
 @Controller
 public class LoginController {
 
 	@Autowired
     private LoginService loginService;
-    
+	
+	
 	@RequestMapping(value="loginController", method = RequestMethod.POST)
 	public ModelAndView userCheck(HttpServletRequest request) {
 		String name=request.getParameter("username");
@@ -113,6 +107,10 @@ public class LoginController {
 		} else if(result.equals("errorDB")){
 			//session.invalidate();
             request.setAttribute("errorMessage", "Errore di connessione. Riprova più tardi");
+            model.setViewName("sign_up");
+		} else if(result.equals("errorSQL")){
+			//session.invalidate();
+            request.setAttribute("errorMessage", "Errore. Nome utente già in uso");
             model.setViewName("sign_up");
 		}
 		

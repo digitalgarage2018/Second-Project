@@ -52,6 +52,10 @@ public class LoginEntity implements Serializable{
 
     @ManyToMany
 	private List<ServiceEntity> serviceList;
+
+	@Column(name="u_wallet_address")
+	private String u_wallet_address;
+
 /*
     @Id
 	@OneToMany(cascade=CascadeType.ALL)
@@ -124,6 +128,14 @@ public class LoginEntity implements Serializable{
 
 	public void setBorn_place(String u_born_place) {
 		this.u_born_place = u_born_place;
+	}
+
+	public String getWalletAddress() {
+		return u_wallet_address;
+	}
+
+	public void setWalletAddress(String u_wallet_address) {
+		this.u_wallet_address = u_wallet_address;
 	}
 
 

@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ServiceService {
     public List<ServiceEntity> getServiceService();
+    public List<ServiceEntity> searchKeyWordService(String keyword);
 
 }

@@ -1,7 +1,10 @@
 package com.project.service;
 
+import javax.persistence.PersistenceException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.CannotCreateTransactionException;
 
 import com.project.dao.LoginDao;
 import com.project.model.LoginEntity;
@@ -39,7 +42,10 @@ public class LoginServiceImpl implements LoginService {
 			if (result.equals("success")){
 				return "success";
 			}
-		 }catch (Exception e){
+		 }catch (PersistenceException e){
+			 System.out.println("Connection failed!!\n" + e);
+			 return "errorSQL";
+		 }catch (CannotCreateTransactionException e){
 			 System.out.println("Connection failed!!\n" + e);
 			 return "errorDB";
 		 }finally{
