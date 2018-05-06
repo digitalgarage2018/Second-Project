@@ -35,7 +35,8 @@ public class LoginController {
 		
 		if (result){
 			model.addObject("user", loginBean);
-	    	model.setViewName("success");
+	    	//model.setViewName("success");
+	    	model.setViewName("initialSearch");
 			
 		}else{
 			model.setViewName("error");
