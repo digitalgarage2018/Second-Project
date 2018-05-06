@@ -75,17 +75,23 @@
                 <h4 id="mySignupModalLabel">Create an <strong>account</strong></h4>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal">
+                <form class="form-horizontal" action="signUpController" method="post">
+                  <div class="control-group">
+                    <label class="control-label" for="inputUsername">Username</label>
+                    <div class="controls">
+                      <input type="text" id="inputUsername" name="username" placeholder="Username">
+                    </div>
+                  </div>
                   <div class="control-group">
                     <label class="control-label" for="inputEmail">Email</label>
                     <div class="controls">
-                      <input type="text" id="inputEmail" placeholder="Email">
+                      <input type="text" id="inputEmail" name="email" placeholder="Email">
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label" for="inputSignupPassword">Password</label>
                     <div class="controls">
-                      <input type="password" id="inputSignupPassword" placeholder="Password">
+                      <input type="password" id="inputSignupPassword" name="password" placeholder="Password">
                     </div>
                   </div>
                   <div class="control-group">

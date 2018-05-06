@@ -53,6 +53,28 @@
 			<artifactId>spring-orm</artifactId>
 			<version>${spring.version}</version>
 		</dependency>
+		
+		 <!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+        <!-- ########### by Alessio, per fornire il supporto EMAIL di spring ad alto livello ################ -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>${spring.version}</version>
+		</dependency>
+		<!-- Java MAIL by Alessio, servizio di basso livello, necessario -->
+		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.mail/javax.mail-api -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>javax.mail-api</artifactId>
+		    <version>1.5.5</version>
+		</dependency>
+		<!-- ############################################################################################### -->
 
 		<!-- Hibernate -->
 		<dependency>

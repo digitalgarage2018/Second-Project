@@ -1,8 +1,20 @@
+/*
+ ============================================================================
+ Name        : LoginController.java
+ Author      : Alessio Onori
+ Version     : 1.0
+ Copyright   : Your copyright notice
+ Description : Controller per la gestione delle richieste di Login
+ ============================================================================
+ */
+
 package com.project.controller;
+
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.project.model.LoginEntity;
+import com.project.model.User;
 import com.project.service.LoginService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,28 +33,35 @@ public class LoginController {
     
 	@RequestMapping(value="loginController", method = RequestMethod.POST)
 	public ModelAndView userCheck(HttpServletRequest request) {
-		String name=request.getParameter("username");
-		String pwd=request.getParameter("password");
+		
+		/*
+		 * recupero i parametri dalla view
+		 */
+		String username=request.getParameter("username"); //potrebbe contenere una mail
+		String password=request.getParameter("password");
 
-		LoginEntity loginBean = new LoginEntity();
-		loginBean.setUsername(name);
-		loginBean.setPassword(pwd);
-		 
+		/*
+		 * tento l'autenticazione
+		 */
+		Optional<User> loggedUser = loginService.authenticateUser(username, password);
 		
-		boolean result = loginService.authenticateUser(loginBean);
-		
+		/*
+		 * ModelAndView incapsula la risposta della view
+		 */
 		ModelAndView model = new ModelAndView();
-		
-		if (result){
-			model.addObject("user", loginBean);
-	    	//model.setViewName("success");
-	    	model.setViewName("initialSearch");
+		if( loggedUser.isPresent() ) {			
+			model.addObject("user", loggedUser.get());
+			//caricato anche il wallet associato nel service authenticateUser
+			model.addObject("wallet",loggedUser.get().getWallet());
 			
-		}else{
+	    	model.setViewName("initialSearch");
+		}
+		else {
 			model.setViewName("error");
 		}
 		
     	return model;
-
 	}
+	
+	
 }
