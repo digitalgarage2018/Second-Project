@@ -3,92 +3,93 @@ package com.project.model;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "CENTERs")
-public class WellnessCenterEntity implements serializable{
+public class WellnessCenterEntity implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long centerID;
+    private long w_centerID;
 
     @NotEmpty
-    @Column(name="username", nullable=false)
-    private String username;
+    @Column(name="w_username", nullable=false)
+    private String w_username;
 
     @NotEmpty
-    @Column(name="password", nullable=false)
-    private String password;
+    @Column(name="w_password", nullable=false)
+    private String w_password;
 
     @NotEmpty
-    @Column(name="name", nullable=false)
-    private String name;
+    @Column(name="w_name", nullable=false)
+    private String w_name;
 
     @NotEmpty
-    @Column(name="address", nullable=false)
-    private String address;
+    @Column(name="w_address", nullable=false)
+    private String w_address;
 
     @NotEmpty
-    @Column(name="phone", nullable=false)
-    private int phone;
+    @Column(name="w_phone", nullable=false)
+    private int w_phone;
 
     @NotEmpty
-    @Column(name="mail", nullable=false)
-    private String mail;
+    @Column(name="w_mail", nullable=false)
+    private String w_mail;
 
-    public long getCenterID() {
-        return centerID;
+    public long getW_centerID() {
+        return w_centerID;
     }
 
-    public void setCenterID(long centerID) {
-        this.centerID = centerID;
+    public void setW_centerID(long w_centerID) {
+        this.w_centerID = w_centerID;
     }
 
-    public String getUsername() {
-        return username;
+    public String getW_username() {
+        return w_username;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setW_username(String w_username) {
+        this.w_username = w_username;
     }
 
-    public String getPassword() {
-        return password;
+    public String getW_password() {
+        return w_password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setW_password(String w_password) {
+        this.w_password = w_password;
     }
 
-    public String getName() {
-        return name;
+    public String getW_name() {
+        return w_name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setW_name(String w_name) {
+        this.w_name = w_name;
     }
 
-    public String getAddress() {
-        return address;
+    public String getW_address() {
+        return w_address;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setW_address(String w_address) {
+        this.w_address = w_address;
     }
 
-    public int getPhone() {
-        return phone;
+    public int getW_phone() {
+        return w_phone;
     }
 
-    public void setPhone(int phone) {
-        this.phone = phone;
+    public void setW_phone(int w_phone) {
+        this.w_phone = w_phone;
     }
 
-    public String getMail() {
-        return mail;
+    public String getW_mail() {
+        return w_mail;
     }
 
-    public void setMail(String mail) {
-        this.mail = mail;
+    public void setW_mail(String w_mail) {
+        this.w_mail = w_mail;
     }
 }
