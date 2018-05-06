@@ -14,23 +14,23 @@ public class ProductEntity implements Serializable {
     private long product_id;
 
     @NotEmpty
-    @Column(name="name", nullable=false)
+    @Column(name="p_name", nullable=false)
     private String name;
 
     @NotEmpty
-    @Column(name="description", nullable=false)
+    @Column(name="p_description", nullable=false)
     private String description;
 
     @NotEmpty
-    @Column(name="service", nullable=false)
+    @Column(name="p_service", nullable=false)
     private String service;
 
     @NotEmpty
-    @Column(name="image", nullable=false)
+    @Column(name="p_image", nullable=false)
     private String image;
 
     @NotEmpty
-    @Column(name="price", nullable=false)
+    @Column(name="p_price", nullable=false)
     private int price;
 
     public long getProduct_id() {

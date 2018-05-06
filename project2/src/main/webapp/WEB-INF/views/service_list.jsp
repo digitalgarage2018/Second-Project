@@ -184,17 +184,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <!-- Modal content-->
                                     <div class="modal-content">
-                                        <div class="modal-header">
+                                        <div class="modal-header" style="background:#c4b7a6;">
                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                            <h4 class="modal-title"><c:out value="${service.sr_name}" /></h4>
+                                            <h4 class="modal-title" style="color:black; text-align: center;">
+                                                <c:out value="${service.sr_name}" /></h4>
                                         </div>
-                                        <div class="modal-body">
-                                            <p> <c:out value="${service.sr_description}" />
-                                            <br><span>Esercente:</span>
-                            					<c:out value="${service.sr_wellness_center}"/></p>
+                                        <div class="modal-body" style="background:#e6e2d3;">
+                                            <p style="color:black;"><span>Centro Benessere:</span>
+                                                <c:out value="${service.sr_wellness_center}"/><br>
+                                                <c:out value="${service.sr_description}" />  <br>  <br>
+                                                <span > Durata:</span>
+                                                <c:out value="${service.sr_time} minuti"/> <br>
+                                                <span > Prezzo:</span>
+                                                <c:out value="${service.sr_price} $"/> <br>
+                                            </p>
+                                            </p>
                                         </div>
-                                        <div class="modal-footer">
-                                            <button onclick="myFunction()">Acquista</button>
+                                        <div class="modal-footer" style="background:#c4b7a6;">
+                                            <button style="background-color: #555555;" onclick="myFunction()" class="btn btn-primary center-block">Acquista</button>
 
                                             <script>
                                                 function myFunction() {
@@ -223,17 +230,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                             <!-- Modal content-->
                                             <div class="modal-content">
-                                                <div class="modal-header">
+                                                <div class="modal-header" style="background:#c4b7a6;">
                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                     <h4 class="modal-title"><c:out value="${service.sr_name}" /></h4>
                                                 </div>
-                                                <div class="modal-body">
-                                                    <p><c:out value="${service.sr_description}" />
-                                                    <br><span>Esercente:</span>
-                            						   <c:out value="${service.sr_wellness_center}"/></p>
+                                                <div class="modal-body" style="background:#e6e2d3;">
+                                                    <p style="color:black;">
+                                                        <span >Centro Benessere:</span>
+                                                        <c:out value="${service.sr_wellness_center}"/> <br>
+                                                        <c:out value="${service.sr_description}" /> <br>  <br>
+                                                        <span > Durata:</span>
+                                                        <c:out value="${service.sr_time} minuti"/> <br>
+                                                        <span > Prezzo:</span>
+                                                        <c:out value="${service.sr_price} $"/> <br>
+                                                        </p>
                                                 </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Acquista</button>
+                                                <div class="modal-footer" style="background:#c4b7a6;">
+                                                    <button type="button" style="background-color: #555555;" class="btn btn-primary center-block">Acquista</button>
 
                                                 </div>
                                             </div>
