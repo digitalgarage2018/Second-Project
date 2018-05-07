@@ -35,8 +35,8 @@ public class SpecsController {
 		 */
 		String name = request.getParameter("name");
 		String type = request.getParameter("type");
-		String price = request.getParameter("name");
-		String area = request.getParameter("name");
+		String price = request.getParameter("price");
+		String area = request.getParameter("area");
 
 		System.out.println("ricevuto il parametro nome: "+name);
 		
@@ -46,6 +46,9 @@ public class SpecsController {
 		ModelAndView model = new ModelAndView();
 		
 		model.addObject("name", name);
+		model.addObject("type", type);
+		model.addObject("price", price);
+		model.addObject("area", area);
 		
 		model.setViewName("houseSpecific");
 		
