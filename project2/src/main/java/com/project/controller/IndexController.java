@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.model.User;
+
 @Controller
 public class IndexController {
 
@@ -28,8 +30,11 @@ public class IndexController {
 	public ModelAndView userCheck(HttpServletRequest request) {
 		
 		/*
-		 * recupero i parametri dalla view
+		 * recupero i parametri dalla view:
+		 * 1) controllo se è presente la sessione utente
 		 */
+		
+		
 
 
 		/*
@@ -39,7 +44,14 @@ public class IndexController {
 		
 		System.out.println("sei passato da IndexController");//debug
 		
-		model.setViewName("index");
+		if( request.getSession().getAttribute("loggedUser") != null ) {
+			model.setViewName("initialSearch");
+		}
+		else {
+			model.setViewName("index");
+		}
+		
+		
 		
     	return model;
 	}

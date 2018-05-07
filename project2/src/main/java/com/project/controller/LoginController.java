@@ -55,6 +55,11 @@ public class LoginController {
 			//caricato anche il wallet associato nel service authenticateUser
 			model.addObject("wallet",loggedUser.get().getWallet());
 			
+			/*
+			 * aggiungo l'utente correttamente loggato alla sessione
+			 */
+			request.getSession().setAttribute("loggedUser", loggedUser.get());
+			
 	    	model.setViewName("initialSearch");
 		}
 		else {
