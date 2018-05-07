@@ -2,7 +2,6 @@ package com.project.model;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.*;
 
 
@@ -16,12 +15,13 @@ public class ExamEntity implements Serializable {
         super();
     }
 
-    public ExamEntity(long id_exam, String name, String description, int credits,List<UserEntity> user_list) {
+    public ExamEntity(long id_exam, String name, String description, int credits,List<UserEntity> user_list, List<MaterialEntity> material_list) {
         this.id_exam = id_exam;
         this.name = name;
         this.description = description;
         this.credits = credits;
         this.user_list = user_list;
+        this.material_list = material_list;
     }
 
     @Id
@@ -39,8 +39,14 @@ public class ExamEntity implements Serializable {
     @Column(name="credits")
     private int credits;
 
-    @ManyToMany(mappedBy = "exam_set")
+    @ManyToMany(mappedBy = "exam_list")
     private List<UserEntity> user_list;
+
+    @OneToMany()
+    private List<MaterialEntity> material_list;
+
+
+
 
     public long getId_exam() {
         return id_exam;
@@ -80,5 +86,13 @@ public class ExamEntity implements Serializable {
 
     public void setUser_list(List<UserEntity> user_list) {
         this.user_list = user_list;
+    }
+
+    public List<MaterialEntity> getMaterial_list() {
+        return material_list;
+    }
+
+    public void setMaterial_list(List<MaterialEntity> material_list) {
+        this.material_list = material_list;
     }
 }

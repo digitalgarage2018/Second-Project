@@ -5,8 +5,6 @@ import com.project.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.jws.soap.SOAPBinding;
-import java.util.List;
 
 @Service
 public class RegisterServiceImpl implements RegisterService {
@@ -28,7 +26,6 @@ public class RegisterServiceImpl implements RegisterService {
         String mail = getNewIstitutionalEmail(newUser);
         newUser.setIstitutional_email(mail);
 
-
         return registerDao.insertNewUser(newUser);
     }
 
@@ -36,7 +33,7 @@ public class RegisterServiceImpl implements RegisterService {
 
         String n = newUser.getName().substring(0,1);
         String s = newUser.getSurname();
-        String email = ""+n+s+"@studenti.unimarina.it";
+        String email = ""+n+"."+s+"@studenti.unimarina.it";
 
         return email;
     }

@@ -31,10 +31,7 @@ public class UtilityEnvironments {
 
     public enum Types {
         STUDENT(0, "S"),
-        PROFESSOR(1, "D"),
-
-        STUDYPLAN(5, "SP"),
-        TEACHING(6, "T");
+        PROFESSOR(1, "D");
 
         private final int code;
         private final String description;

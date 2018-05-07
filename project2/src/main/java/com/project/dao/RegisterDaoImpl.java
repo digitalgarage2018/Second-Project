@@ -4,9 +4,8 @@ import com.project.model.UserEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.jws.soap.SOAPBinding;
 import javax.persistence.*;
-import java.util.*;
+
 
 @Repository
 @Transactional
@@ -30,8 +29,8 @@ public class RegisterDaoImpl implements RegisterDao {
         return result;
     }
 
-    public UserEntity insertNewUser(UserEntity userEntity) {
 
+    public UserEntity insertNewUser(UserEntity userEntity) {
 
         entityManager.persist(userEntity);
 
