@@ -60,7 +60,8 @@ public class SignUpController {
 			 * attuale configurazione... faccio puntare alla jsp initialSearch 
 			 * come se avessi effettuato un login con successo 
 			 */
-			model.setViewName("initialSearch");
+//			model.setViewName("indexController");
+			model.setViewName("index");//in quanto è anche la pagina di default
 		}
 		else {
 			model.setViewName("error");
