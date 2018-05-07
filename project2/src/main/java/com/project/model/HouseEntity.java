@@ -21,9 +21,9 @@ public class HouseEntity {
 	
 	private String name;
 	
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "fk_city")
-	private CityEntity city;
+//    @ManyToOne(fetch = FetchType.EAGER)
+//    @JoinColumn(name = "fk_city")
+//	private CityEntity city;
 	
 	private String type;
 	
@@ -55,13 +55,13 @@ public class HouseEntity {
 		this.name = name;
 	}
 
-	public CityEntity getCity() {
-		return city;
-	}
-
-	public void setCity(CityEntity city) {
-		this.city = city;
-	}
+//	public CityEntity getCity() {
+//		return city;
+//	}
+//
+//	public void setCity(CityEntity city) {
+//		this.city = city;
+//	}
 
 	public String getType() {
 		return type;
