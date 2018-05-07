@@ -278,7 +278,12 @@
 
 			<script>
 
+					
+			
     function initMap() {
+    	
+    	var infoWindow = new google.maps.InfoWindow;
+    	
         var map = new google.maps.Map(document.getElementById('map'), 
         		{
             		center: new google.maps.LatLng(${lat},${lng}),
@@ -473,7 +478,7 @@
 			//var ib = new InfoBox(myOptions);
 
 
-			var infoWindow = new google.maps.InfoWindow;
+			
 
 			marker.addListener('click', function () {
 				//show info here
