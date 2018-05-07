@@ -81,9 +81,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 type="text"
 						 name="born_date"
 						 id="born_date"
-						 pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))"
-						 onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Data inserita non valida: ripetta il formato richiesto (YYYY-MM-DD) ed inserisci una data di nascita valida' : '');"
-						 placeholder="YYYY-MM-DD"
+						 pattern="(0[1-9]|1[0-9]|2[0-9]|3[01])/(0[1-9]|1[012])/[0-9]{4}"
+						 onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Data inserita non valida: ripetta il formato richiesto (GG/MM/AAAA) ed inserisci una data di nascita valida' : '');"
+						 placeholder="GG/MM/AAAA"
 						 required>
 				</div>
 				<div>
@@ -112,7 +112,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div class="col-md-6 register-bottom-grid">
 				<div>
-					<span> Password </span>
+					<span> Password (min. 6 caratteri) </span>
 					<input id="password" name="password" type="password" pattern="^\S{6,}$" onchange="this.setCustomValidity(this.validity.patternMismatch ? 'Inserisci almeno 6 caratteri' : ''); if(this.checkValidity()) form.password_two.pattern = this.value;" required>
 				</div>
 				<div>
