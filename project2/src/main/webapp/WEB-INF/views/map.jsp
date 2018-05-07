@@ -96,7 +96,7 @@
 				<div class="row">
 					<div class="span4">
 						<div class="logo">
-							<a><img src="img/logo.png" alt="" class="logo" /></a>
+							<a href="/Project2/"><img src="img/logo.png" alt="" class="logo" /></a>
 						</div>
 					</div>
 					<div class="span8">

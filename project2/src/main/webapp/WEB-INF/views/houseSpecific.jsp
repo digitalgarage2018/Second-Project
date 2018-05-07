@@ -62,7 +62,7 @@
           <div class="span12">
             <div class="headnav">
               <ul>
-                <li><a href="index.html"><i class="icon-user"></i> Log out</a></li>
+                <li><a href="logOutController"><i class="icon-user"></i> Log out</a></li>
 
               </ul>
             </div>
@@ -72,7 +72,7 @@
         <div class="row">
           <div class="span4">
             <div class="logo">
-              <a><img src="img/logo.png" alt="" class="logo" /></a>
+              <a href="/Project2/"><img src="img/logo.png" alt="" class="logo" /></a>
             </div>
           </div>
           <div class="span8">
@@ -83,11 +83,8 @@
                     <li class="dropdown">
                       <a>Profile <i class="icon-angle-down"></i></a>
                       <ul class="dropdown-menu">
-                        <li><a href="index-alt2.html">My Profile</a></li>
+                        <li><a href="resources/workInProgress.html">My Profile</a></li>
                       </ul>
-                    </li>
-                    <li class="dropdown">
-                      <a href="">Back to map</a>
                     </li>
             </div>
           </div>
@@ -103,8 +100,8 @@
               <h2>${requestScope['name']}</h2>
               <p style="color:white">
 	              Tipo: ${requestScope['type']}<br>
-	              Prezzo: ${requestScope['price']} &euro<br>
-	              Area: ${requestScope['area']} Mq
+	              Prezzo: ${requestScope['price']} &euro; <br>
+	              Area: ${requestScope['area']} m<sup>2</sup>
               </p>
             </div>
           
