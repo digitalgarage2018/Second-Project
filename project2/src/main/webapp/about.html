@@ -18,6 +18,8 @@
   <link href="css/style.css" rel="stylesheet" />
   <!-- Theme skin -->
   <link href="skins/default.css" rel="stylesheet" />
+  <!-- boxed bg -->
+  <link id="bodybg" href="bodybg/bg1.css" rel="stylesheet" type="text/css" />
   <!-- Fav and touch icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png" />
   <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png" />
@@ -34,21 +36,6 @@
 </head>
 
 <body>
-
-
-	<!-- ByAlessio, al momento lo inserisco qui in quanto con questa config non sono in grado di 
-	puntare ad index, trovandosi ad un livello superiore rispetto a WEB-INF -->
-	<% 
-	if( request.getAttribute("authenticated") != null && (Boolean)request.getAttribute("authenticated") == true){
-	%>
-	<script type="text/javascript">
-		alert("Nuovo utente correttamente registrato! controlla la mail..");
-	</script>	
-	<%	
-	}
-	%>
-
-
   <div id="wrapper">
     <!-- toggle top area -->
     <div class="hidden-top">
@@ -56,9 +43,9 @@
         <div class="row">
           <div class="span12">
             <ul>
-              <li><strong>We are available for any custom works this month</strong></li>
-              <li>Main office: Milano, via Larga 20122 </li>
-              <li>Call us <i class="icon-phone"></i> (+39) 02 0000 - (+39) 333 0000</li>
+                <li><strong>We are available for any custom works this month</strong></li>
+                <li>Main office: Milano, via Larga 20122 </li>
+                <li>Call us <i class="icon-phone"></i> (+39) 02 0000 - (+39) 333 0000</li>
             </ul>
           </div>
         </div>
@@ -67,17 +54,15 @@
     <!-- end toggle top area -->
     <!-- start header -->
     <header>
-      <div class="container ">
+      <div class="container">
         <!-- hidden top area toggle link -->
         <div id="header-hidden-link">
           <a href="#" class="toggle-link" title="Click me you'll get a surprise" data-target=".hidden-top"><i></i>Open</a>
         </div>
         <!-- end toggle link -->
         <div class="row nomargin">
-            
           <div class="span12">
             <div class="headnav">
-              
               <ul>
                 <li><a href="#mySignup" data-toggle="modal"><i class="icon-user"></i> Sign up</a></li>
                 <li><a href="#mySignin" data-toggle="modal">Sign in</a></li>
@@ -86,27 +71,21 @@
             <!-- Signup Modal -->
             <div id="mySignup" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySignupModalLabel" aria-hidden="true">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                 <h4 id="mySignupModalLabel">Create an <strong>account</strong></h4>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="signUpController" method="post">
-                  <div class="control-group">
-                    <label class="control-label" for="inputUsername">Username</label>
-                    <div class="controls">
-                      <input type="text" id="inputUsername" name="username" placeholder="Username">
-                    </div>
-                  </div>
+                <form class="form-horizontal">
                   <div class="control-group">
                     <label class="control-label" for="inputEmail">Email</label>
                     <div class="controls">
-                      <input type="text" id="inputEmail" name="email" placeholder="Email">
+                      <input type="text" id="inputEmail" placeholder="Email">
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label" for="inputSignupPassword">Password</label>
                     <div class="controls">
-                      <input type="password" id="inputSignupPassword" name="password" placeholder="Password">
+                      <input type="password" id="inputSignupPassword" placeholder="Password">
                     </div>
                   </div>
                   <div class="control-group">
@@ -130,21 +109,21 @@
             <!-- Sign in Modal -->
             <div id="mySignin" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="mySigninModalLabel" aria-hidden="true">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                 <h4 id="mySigninModalLabel">Login to your <strong>account</strong></h4>
               </div>
               <div class="modal-body">
-                <form class="form-horizontal" action="loginController" method="post">
+                <form class="form-horizontal">
                   <div class="control-group">
                     <label class="control-label" for="inputText">Username</label>
                     <div class="controls">
-                      <input type="text" id="inputText" name="username" placeholder="Username">
+                      <input type="text" id="inputText" placeholder="Username">
                     </div>
                   </div>
                   <div class="control-group">
                     <label class="control-label" for="inputSigninPassword">Password</label>
                     <div class="controls">
-                      <input type="password" id="inputSigninPassword" name="password" placeholder="Password">
+                      <input type="password" id="inputSigninPassword" placeholder="Password">
                     </div>
                   </div>
                   <div class="control-group">
@@ -162,7 +141,7 @@
             <!-- Reset Modal -->
             <div id="myReset" class="modal styled hide fade" tabindex="-1" role="dialog" aria-labelledby="myResetModalLabel" aria-hidden="true">
               <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Ã—</button>
                 <h4 id="myResetModalLabel">Reset your <strong>password</strong></h4>
               </div>
               <div class="modal-body">
@@ -184,80 +163,56 @@
                 </form>
               </div>
             </div>
+            <div class="row">
+            <div class="span4">
+              <div class="logo">
+                <a href="index.html"><img src="img/logo.png" alt="" class="logo" /></a>
+              </div>
+            </div>
+            </div>
+ 
             <!-- end reset modal -->
           </div>
         </div>
-        <div class="row">
-            <div class="span4">
-              <div class="logo">
-                <a href="./"><img src="img/logo.png" alt="" class="logo" /></a>
-              </div>
-            </div>
-            <div class="span8">
-                <div class="navbar navbar-static-top">
-                  <div class="navigation">
-                    <nav>
-                      <ul class="nav topnav">
-                       
-                          <a href="about.html">About Us<i class="icon-angle-down"></i></a>
-                         
-                          </ul>
-                       
-                        
-                </div>
-              </div>
-            
-          </div>
-      </div>
-    </header>
+        
+          </header>
     <!-- end header -->
-    <section id="featured">
-      <!-- start slider -->
-      <!-- Slider -->
-      <div id="nivo-slider">
-        <div class="nivo-slider">
-          <!-- Slide #1 image -->
-          <img src="img/slides/nivo/bg-1.jpg" alt="" title="#caption-1" />
-          <!-- Slide #2 image -->
-          <img src="img/slides/nivo/bg-2.jpg" alt="" title="#caption-2" />
-          <!-- Slide #3 image -->
-          <img src="img/slides/nivo/bg-3.jpg" alt="" title="#caption-3" />
-        </div>
-        <div class="container">
-          <div class="row">
-            <div class="span12">
-              <!-- Slide #1 caption -->
-              <div class="nivo-caption" id="caption-1">
-                <div>
-                  <p> 
-                  We will help you find your ideal accommodation!
-                  </p>
-                </div>
-              </div>
-              <!-- Slide #2 caption -->
-              <div class="nivo-caption" id="caption-2">
-                <div>
-                  <p>
-                    Perfect solution for your family!
-                  </p>
-                </div>
-              </div>
-              <!-- Slide #3 caption -->
-              <div class="nivo-caption" id="caption-3">
-                <div>
-                  <p>
-                    You will have the house you have always dreamed!
-                  </p>
-                </div>
-              </div>
+   
+    <section id="content">
+      <div class="container">
+        <div class="row">
+          <div class="span6">
+            <h2>Welcome to <strong>WebImmobiliare.it</strong></h2>
+            <p>
+              
+Thanks to many years of experience, professionalism, seriousness, transparency and availability, the real estate agent WebImmobiliare will accompany you to the best choice, through all the bureaucratic process and resolving any doubts on the sale and lease.
+            </p>
+            <p>
+                WebImmobiliare accompanies "buyer" the buyer or tenant to visit the properties that are close to his tastes and / or economic possibilities, agreeing days and times.
+            </p>
+            <p>
+              
+WebImmobiliare works with professionalism and dynamism, in the field of real estate brokerage. It is proposed to offer the customer a wide-ranging consultancy and assistance in the real estate sector both in the lease and in the sale
+            </p>
+          </div>
+          <div class="span6">
+            <!-- start flexslider -->
+            <div class="flexslider">
+              <ul class="slides">
+                <li>
+                  <img src="img/works/full/image-01-full.jpg" alt="" />
+                </li>
+                <li>
+                  <img src="img/works/full/image-02-full.jpg" alt="" />
+                </li>
+                <li>
+                  <img src="img/works/full/image-03-full.jpg" alt="" />
+                </li>
+              </ul>
             </div>
+            <!-- end flexslider -->
           </div>
         </div>
-      </div>
-      <!-- end slider -->
-    </section>
-    
-     
         <!-- divider -->
         <div class="row">
           <div class="span12">
@@ -266,25 +221,28 @@
           </div>
         </div>
         <!-- end divider -->
-        
-   
-        <div id="sub-footer">
-            <div class="container">
-              <div class="row">
-                <div class="span6">
-                  <div class="copyright">
-                    <p>
-                      <strong>WebImmobiliare.it</strong><br>
-                      <address>Milano, via Larga 20122</address><br>     
-                        <i class="icon-phone"></i> (+39) 02 0000 - (+39) 333 0000 <br>
-                        <i class="icon-envelope-alt"></i> webimmobiliare@gmail.com
-                      </p>
-                    
+      
+       
+       
+            <div id="sub-footer">
+                <div class="container">
+                  <div class="row">
+                    <div class="span6">
+                      <div class="copyright">
+                        <p>
+                          <strong>WebImmobiliare.it</strong><br>
+                          <address>Milano, via Larga 20122</address><br>     
+                            <i class="icon-phone"></i> (+39) 02 0000 - (+39) 333 0000 <br>
+                            <i class="icon-envelope-alt"></i> webimmobiliare@gmail.com
+                          </p>
+                        
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+
+         
   </div>
   <a href="#" class="scrollup"><i class="icon-chevron-up icon-square icon-32 active"></i></a>
   <!-- javascript
@@ -310,4 +268,5 @@
   <script src="js/custom.js"></script>
 
 </body>
+
 </html>

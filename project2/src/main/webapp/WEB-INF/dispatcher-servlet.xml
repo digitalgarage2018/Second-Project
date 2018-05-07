@@ -95,5 +95,7 @@
 	
 	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
 	
+	<mvc:resources mapping="/about.html" location="/about.html"></mvc:resources>
+	
 
 </beans>
