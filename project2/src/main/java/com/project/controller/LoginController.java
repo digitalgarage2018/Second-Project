@@ -12,6 +12,7 @@ package com.project.controller;
 
 import java.util.Optional;
 
+import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 
 import com.project.model.User;

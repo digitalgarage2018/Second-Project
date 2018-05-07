@@ -93,5 +93,7 @@
 	<mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
 	<mvc:resources mapping="/skins/**" location="/skins/"></mvc:resources>
 	
+	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
+	
 
 </beans>

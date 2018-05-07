@@ -28,10 +28,7 @@
 		</listener-class>
 	</listener>
 	
-	<!-- by Alessio.. ho spostato index nelle views -->
-	<welcome-file-list>
-   		<welcome-file>/WEB-INF/views/index.jsp</welcome-file>
-	</welcome-file-list>
+
 	
 	
 </web-app>

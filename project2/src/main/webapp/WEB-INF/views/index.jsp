@@ -175,7 +175,7 @@
         <div class="row">
             <div class="span4">
               <div class="logo">
-                <a href="index.html"><img src="img/logo.png" alt="" class="logo" /></a>
+                <a href="./"><img src="img/logo.png" alt="" class="logo" /></a>
               </div>
             </div>
             <div class="span8">
@@ -184,7 +184,7 @@
                     <nav>
                       <ul class="nav topnav">
                        
-                          <a href="about.html">About Us<i class="icon-angle-down"></i></a>
+                          <a href="resources/workInProgress.html">About Us<i class="icon-angle-down"></i></a>
                          
                           </ul>
                        

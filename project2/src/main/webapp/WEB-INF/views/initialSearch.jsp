@@ -109,7 +109,7 @@
 								<li class="dropdown"><a>Profile <i
 										class="icon-angle-down"></i></a>
 									<ul class="dropdown-menu">
-										<li><a href="index-alt2.html">My Profile</a></li>
+										<li><a href="resources/workInProgress.html">My Profile</a></li>
 									</ul></li>
 						</div>
 					</div>
