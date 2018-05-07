@@ -100,7 +100,8 @@
         <div class="row">
          
             <div class="inner-heading">
-              <h2>Appartamento in zona residenziale</h2>
+              <h2>${requestScope['name']}</h2>
+              
             </div>
           
         </div>

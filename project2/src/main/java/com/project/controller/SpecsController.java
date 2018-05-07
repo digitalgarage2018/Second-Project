@@ -34,6 +34,9 @@ public class SpecsController {
 		 * recupero i parametri dalla view
 		 */
 		String name = request.getParameter("name");
+		String type = request.getParameter("type");
+		String price = request.getParameter("name");
+		String area = request.getParameter("name");
 
 		System.out.println("ricevuto il parametro nome: "+name);
 		
@@ -41,6 +44,8 @@ public class SpecsController {
 		 * ModelAndView incapsula la risposta della view
 		 */
 		ModelAndView model = new ModelAndView();
+		
+		model.addObject("name", name);
 		
 		model.setViewName("houseSpecific");
 		
