@@ -152,7 +152,7 @@
                       <button type="submit" class="btn">Sign in</button>
                     </div>
                     <p class="aligncenter margintop20">
-                      Forgot password? <a href="#myReset" data-dismiss="modal" aria-hidden="true" data-toggle="modal">Reset</a>
+                      Forgot password? <a href="resources/workInProgress.html">Reset</a>
                     </p>
                   </div>
                 </form>
