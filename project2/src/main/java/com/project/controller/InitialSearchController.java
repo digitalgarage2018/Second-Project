@@ -54,6 +54,10 @@ public class InitialSearchController {
 		model.addObject("lng", parameters.get("longitude"));		
 		model.addObject("houses", houses);
 		model.addObject("range", 2);
+		model.addObject("minPrice", 0);
+		model.addObject("maxPrice", 1000000);
+		model.addObject("minArea", 0);
+		model.addObject("maxArea", 1000);
 		model.setViewName("map");
 
 		return model;

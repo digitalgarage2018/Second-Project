@@ -146,7 +146,7 @@
 									<b>€0</b> <input id="price" name="price" type="text"
 										class="form-control" value="" data-slider-min="10000"
 										data-slider-max="1000000" data-slider-step="1000"
-										data-slider-value="[50000,500000]"/> <b>€1000000</b>
+										data-slider-value="[${minPrice},${maxPrice}]"/> <b>€1000000</b>
 								</div>
 							</div>
 							<div class="form-group">
@@ -155,7 +155,7 @@
 									<b>0mq</b> <input id="area" name="area" type="text"
 										class="form-control" value="" data-slider-min="20"
 										data-slider-max="1000" data-slider-step="1"
-										data-slider-value="[10,1000]"/> <b> 1000mq</b>
+										data-slider-value="[${minArea},${maxArea}]"/> <b> 1000mq</b>
 								</div>
 							</div>
 							<div class="form-group">

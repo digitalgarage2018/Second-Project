@@ -90,6 +90,10 @@ public class HouseSelectionController {
 		model.addObject("lng", Double.parseDouble(parameters.get("longitude")));
 		model.addObject("range",Integer.parseInt(range));
 		model.addObject("houses", houses);
+		model.addObject("minPrice", Double.parseDouble(parameters.get("minPrice")));
+		model.addObject("maxPrice", Double.parseDouble(parameters.get("maxPrice")));
+		model.addObject("minArea", Double.parseDouble(parameters.get("minArea")));
+		model.addObject("maxArea", Double.parseDouble(parameters.get("maxArea")));
 		model.setViewName("map");
 
 		return model;
