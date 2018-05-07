@@ -36,6 +36,8 @@ public class HouseEntity {
 	private double latitude;
 	
 	private double longitude;
+	
+	private String address;
 
 	public Long getId() {
 		return id;
@@ -107,6 +109,14 @@ public class HouseEntity {
 
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
 		
 }
