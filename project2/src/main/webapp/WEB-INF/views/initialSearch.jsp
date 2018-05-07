@@ -124,7 +124,6 @@
 							<div class="form-group">
 								<label id="city" for="city">Seleziona città di partenza:</label>
 								<select name="city"><br>
-									<option value="">Città</option>
 									<option value="Roma">Roma</option>
 									<option value="Milano">Milano</option>
 								</select>
