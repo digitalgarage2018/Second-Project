@@ -161,23 +161,23 @@
 							<div class="form-group">
 								<select name="type" style="width: 100%">
 									<option value="">Tipo</option>
-									<option value="Bilocale">Bilocale</option>
-									<option value="Trilocale">Trilocale</option>
-									<option value="Quadrilocale">Quadrilocale</option>
-									<option value="Plurilocale">Plurilocale</option>
-									<option value="Loft">Loft</option>
+									<option value="Bilocale" <c:if test = "${type=='Bilocale'}">selected</c:if>>Bilocale</option>
+									<option value="Trilocale"<c:if test = "${type=='Trilocale'}">selected</c:if>>Trilocale</option>
+									<option value="Quadrilocale"<c:if test = "${type=='Quadrilocale'}">selected</c:if>>Quadrilocale</option>
+									<option value="Plurilocale"<c:if test = "${type=='Plurilocale'}">selected</c:if>>Plurilocale</option>
+									<option value="Loft"<c:if test = "${type=='Loft'}">selected</c:if>>Loft</option>
 								</select>
 							</div>
 							<div class="form-group">
 								<select name="E_class" style="width: 100%"><br>
 									<option value="">Classe Energetica</option>
-									<option value="A">A</option>
-									<option value="B">B</option>
-									<option value="C">C</option>
-									<option value="D">D</option>
-									<option value="E">E</option>
-									<option value="F">F</option>
-									<option value="G">G</option>
+									<option value="A"<c:if test = "${E_class=='A'}">selected</c:if>>A</option>
+									<option value="B"<c:if test = "${E_class=='B'}">selected</c:if>>B</option>
+									<option value="C"<c:if test = "${E_class=='C'}">selected</c:if>>C</option>
+									<option value="D"<c:if test = "${E_class=='D'}">selected</c:if>>D</option>
+									<option value="E"<c:if test = "${E_class=='E'}">selected</c:if>>E</option>
+									<option value="F"<c:if test = "${E_class=='F'}">selected</c:if>>F</option>
+									<option value="G"<c:if test = "${E_class=='G'}">selected</c:if>>G</option>
 								</select>
 							</div>
 							<div class="form-group">
@@ -195,6 +195,7 @@
 									<th scope="col">Prezzo</th>
 									<th scope="col">Area</th>
 									<th scope="col">Classe</th>
+									<th scope="col">Tipo</th>
 								</tr>
 							</thead>
 							<tbody>
@@ -205,6 +206,7 @@
 										<td>${house.price}</td>
 										<td>${house.area}</td>
 										<td>${house.e_class}</td>
+										<td>${house.type}</td>
 									</tr>
 
 								</c:forEach>

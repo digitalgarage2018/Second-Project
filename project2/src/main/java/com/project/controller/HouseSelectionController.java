@@ -94,6 +94,8 @@ public class HouseSelectionController {
 		model.addObject("maxPrice", Double.parseDouble(parameters.get("maxPrice")));
 		model.addObject("minArea", Double.parseDouble(parameters.get("minArea")));
 		model.addObject("maxArea", Double.parseDouble(parameters.get("maxArea")));
+		model.addObject("type", type);
+		model.addObject("E_class", E_class);
 		model.setViewName("map");
 
 		return model;
