@@ -85,7 +85,7 @@
 					<div class="span12">
 						<div class="headnav">
 							<ul>
-								<li><a href="index.html"><i class="icon-user"></i> Log
+								<li><a href="logOutController"><i class="icon-user"></i> Log
 										out</a></li>
 
 							</ul>
