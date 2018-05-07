@@ -132,12 +132,12 @@
 							</div>
 							<div class="form-group">
 								<small id="rangeHelp" class="form-text text-muted">Nel
-									raggio di <span id="rangeOutput"></span> Km.
+									raggio di <span id="rangeOutput">${range}</span> Km.
 								</small>
 								<div>
 									<input id="range" name="range" data-slider-id='range'
 										type="text" data-slider-min="0" data-slider-max="20"
-										data-slider-step="1" data-slider-value="2" />
+										data-slider-step="1" data-slider-value="${range}" />
 								</div>
 							</div>
 							<div class="form-group">

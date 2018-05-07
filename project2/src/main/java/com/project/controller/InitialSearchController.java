@@ -53,6 +53,7 @@ public class InitialSearchController {
 		model.addObject("lat", parameters.get("latitude"));
 		model.addObject("lng", parameters.get("longitude"));		
 		model.addObject("houses", houses);
+		model.addObject("range", 2);
 		model.setViewName("map");
 
 		return model;

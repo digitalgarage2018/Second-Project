@@ -49,6 +49,8 @@ public class HouseSelectionController {
 		String E_class = request.getParameter("E_class");
 		String range = request.getParameter("range");
 		
+		if(range == null || range.equals("") )
+			range = "2";
 		
 		
 		String city = request.getParameter("city");
@@ -85,7 +87,8 @@ public class HouseSelectionController {
 		String json_house = new Gson().toJson(houses);
 		model.addObject("places", json_house);
 		model.addObject("lat", Double.parseDouble(parameters.get("latitude")));
-		model.addObject("lng", Double.parseDouble(parameters.get("longitude")));		
+		model.addObject("lng", Double.parseDouble(parameters.get("longitude")));
+		model.addObject("range",Integer.parseInt(range));
 		model.addObject("houses", houses);
 		model.setViewName("map");
 
