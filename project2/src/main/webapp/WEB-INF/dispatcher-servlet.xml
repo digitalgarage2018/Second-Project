@@ -52,8 +52,8 @@
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
 		<property name="url" value="jdbc:mysql://localhost:3306/progadv1" />
-		<property name="username" value="root" />
-		<property name="password" value="" />
+		<property name="username" value="adv" />
+		<property name="password" value="pollo123" />
 	</bean>
 
 	<!-- This transaction manager is appropriate for applications that use a 

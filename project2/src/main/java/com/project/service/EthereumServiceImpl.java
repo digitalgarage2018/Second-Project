@@ -45,8 +45,14 @@ public class EthereumServiceImpl implements EthereumService {
 		
 	public String getWalletAddress(String userId){
 		
-		LoginEntity user = ethereumDao.getLoginById(userId);
-		String walletAddress = user.getWalletAddress();
+		LoginEntity user = null;
+		String walletAddress = null;
+		try {
+			user = ethereumDao.getLoginById(userId);
+			walletAddress = user.getWalletAddress();
+		} catch(Exception e){
+			 System.out.println("errore exec: "+e);			
+		}
 		return walletAddress;
 		
 	}

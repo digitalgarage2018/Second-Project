@@ -35,7 +35,7 @@ public class EthereumDaoImpl implements EthereumDao {
 	@PersistenceContext
 	 public EntityManager entityManager;
 	
-	 public LoginEntity getLoginById(String username) {
+	 public LoginEntity getLoginById(String username) throws Exception{
 		return entityManager.find(LoginEntity.class, username);
 	 }
 }

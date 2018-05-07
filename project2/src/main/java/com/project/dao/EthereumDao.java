@@ -10,5 +10,5 @@ import com.project.model.LoginEntity;
 public interface EthereumDao {
 
 	public BigInteger getEth(String walletAddress) throws ExecutionException, InterruptedException, MessageDecodingException;
-	public LoginEntity getLoginById(String username);
+	public LoginEntity getLoginById(String username) throws Exception;
 }
