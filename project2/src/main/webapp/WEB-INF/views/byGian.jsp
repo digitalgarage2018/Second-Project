@@ -132,12 +132,12 @@
 							</div>
 							<div class="form-group">
 								<small id="rangeHelp" class="form-text text-muted">Nel
-									raggio di <span id="rangeOutput">${range}</span> Km.
+									raggio di <span id="rangeOutput"></span> Km.
 								</small>
 								<div>
 									<input id="range" name="range" data-slider-id='range'
 										type="text" data-slider-min="0" data-slider-max="20"
-										data-slider-step="1" data-slider-value="${range}" />
+										data-slider-step="1" data-slider-value="2" />
 								</div>
 							</div>
 							<div class="form-group">
@@ -146,7 +146,7 @@
 									<b>€0</b> <input id="price" name="price" type="text"
 										class="form-control" value="" data-slider-min="10000"
 										data-slider-max="1000000" data-slider-step="1000"
-										data-slider-value="[${minPrice},${maxPrice}]"/> <b>€1000000</b>
+										data-slider-value="[50000,500000]"/> <b>€1000000</b>
 								</div>
 							</div>
 							<div class="form-group">
@@ -155,7 +155,7 @@
 									<b>0mq</b> <input id="area" name="area" type="text"
 										class="form-control" value="" data-slider-min="20"
 										data-slider-max="1000" data-slider-step="1"
-										data-slider-value="[${minArea},${maxArea}]"/> <b> 1000mq</b>
+										data-slider-value="[10,1000]"/> <b> 1000mq</b>
 								</div>
 							</div>
 							<div class="form-group">
@@ -304,187 +304,187 @@
        <%--var list1 = '<%=json%>';--%>
        // var places = JSON.parse(list1);
 
-	for (var i = 0; i < filteredPlaces.length; i++) {
-		(function () {
-			var id = filteredPlaces[i].id;
-			var name = filteredPlaces[i].name;
-			var address = filteredPlaces[i].address;
-			var city = filteredPlaces[i].city;
-			var type = filteredPlaces[i].type;
-			var price = filteredPlaces[i].price;
-			var area = filteredPlaces[i].area;
-			var E_class = filteredPlaces[i].eClass;
-			var lat = filteredPlaces[i].latitude;
-			var lng = filteredPlaces[i].longitude;
-			var point = new google.maps.LatLng(lat, lng);
+        for (var i = 0; i < filteredPlaces.length; i++) {
+            (function () {
+                var id = filteredPlaces[i].id;
+                var name = filteredPlaces[i].name;
+                var address = filteredPlaces[i].address;
+                var city = filteredPlaces[i].city;
+                var type = filteredPlaces[i].type;
+                var price = filteredPlaces[i].price;
+                var area = filteredPlaces[i].area;
+                var E_class = filteredPlaces[i].eClass;
+                var lat = filteredPlaces[i].latitude;
+                var lng = filteredPlaces[i].longitude;
+                var point = new google.maps.LatLng(lat, lng);
 
-			/*
-			Gianmarco:
+                /*
+                        Gianmarco:
 
-			laying out the pop up window with basic specs on map, for each building.
-			The construction is pretty simple: append children as you would do in a
-			xml document construction. You oughta append every graphical tag you want,
-			in order to get a graphically satisfying result.
-			*/
-
-
-			var infowincontent = document.createElement('div');
-			//link to image icon: 'http://delltelephone.com/wp-content/uploads/2017/03/House-Icon.png'
-			var picture = document.createElement("img");
-			picture.setAttribute('src', 'http://delltelephone.com/wp-content/uploads/2017/03/House-Icon.png');
-			picture.setAttribute('alt', 'na');
-			picture.setAttribute('height', '50px');
-			picture.setAttribute('width', '50px');
-			infowincontent.appendChild(picture);
-			//title
-			infowincontent.appendChild((document.createElement('br')));
-			var strong = document.createElement('strong');
-			strong.textContent = name;
-			infowincontent.appendChild(strong);
-			//address
-			infowincontent.appendChild((document.createElement('br')));
-			var text = document.createElement('text');
-			text.textContent = address;
-			infowincontent.appendChild(text);
-			//city
-			infowincontent.appendChild((document.createElement('br')));
-			var text1 = document.createElement('text');
-			text1.textContent = city;
-			infowincontent.appendChild(text1);
-			//type
-			infowincontent.appendChild((document.createElement('br')));
-			var text2 = document.createElement('text');
-			text2.textContent = type;
-			infowincontent.appendChild(text2);
-			//price
-			infowincontent.appendChild((document.createElement('br')));
-			var text3 = document.createElement('text');
-			text3.textContent = price + " €";
-			infowincontent.appendChild(text3);
-			//area
-			infowincontent.appendChild((document.createElement('br')));
-			var text4 = document.createElement('text');
-			text4.textContent = area + " mq2";
-			infowincontent.appendChild(text4);
-			//energetic class
-			infowincontent.appendChild((document.createElement('br')));
-			var text5 = document.createElement('text');
-			text5.textContent = "Classe energetica " + E_class;
-			infowincontent.appendChild(text5);
-			infowincontent.appendChild((document.createElement('br')));
-			infowincontent.appendChild((document.createElement('br')));
+                        laying out the pop up window with basic specs on map, for each building.
+                        The construction is pretty simple: append children as you would do in a
+                        xml document construction. You oughta append every graphical tag you want,
+                        in order to get a graphically satisfying result.
+                */
 
 
-			//Gianmarco: creating the hidden form to pass infos...
-			var hiddenForm = document.createElement('form');
-			hiddenForm.name='myForm';
-			hiddenForm.method='GET';
-			hiddenForm.action='specsController';
-			infowincontent.appendChild(hiddenForm);
-
-			var input1 = document.createElement('input');
-			input1.type='HIDDEN';
-			input1.name='name';
-			input1.value=name;
-			hiddenForm.appendChild(input1);
-
-			var input2 = document.createElement('input');
-			input2.type='HIDDEN';
-			input2.name='address';
-			input2.value=address;
-			hiddenForm.appendChild(input2);
-
-			var input3 = document.createElement('input');
-			input3.type='HIDDEN';
-			input3.name='city';
-			input3.value=city;
-			hiddenForm.appendChild(input3);
-
-			var input4 = document.createElement('input');
-			input4.type='HIDDEN';
-			input4.name='type';
-			input4.value=type;
-			hiddenForm.appendChild(input4);
-
-			var input5 = document.createElement('input');
-			input5.type='HIDDEN';
-			input5.name='price';
-			input5.value=price;
-			hiddenForm.appendChild(input5);
-
-			var input6 = document.createElement('input');
-			input6.type='HIDDEN';
-			input6.name='area';
-			input6.value=area;
-			hiddenForm.appendChild(input6);
-
-			var input7 = document.createElement('input');
-			input7.type='HIDDEN';
-			input7.name='eclass';
-			input7.value=E_class;
-			hiddenForm.appendChild(input7);
-
-			//var button = document.createElement('button');
-			//button.type='submit';
-
-			//button.onclick = function() {
-			//    hiddenForm.submit();
-			//};
-			//hiddenForm.appendChild(button);
-
-			//var text6 = document.createElement('strong');
-			var text6 = document.createElement('a');
-			//text6.href=//"house_template.jsp?housename=" + name + "&houseaddress=" + address + "&housecity=" + city +
-			//		"&housetype=" + type + "&houseprice=" + price + "&housearea=" + area + "&houseclass=" + E_class;
-			//			"";
-			text6.textContent = "Request an Appointment";
-			hiddenForm.appendChild(text6);
-			text6.onclick = function() {
-				hiddenForm.submit();
-			}
-			//you can even customize an icon -- I'm staying with the standard here...
+                var infowincontent = document.createElement('div');
+                //link to image icon: 'http://delltelephone.com/wp-content/uploads/2017/03/House-Icon.png'
+                var picture = document.createElement("img");
+                picture.setAttribute('src', 'http://delltelephone.com/wp-content/uploads/2017/03/House-Icon.png');
+                picture.setAttribute('alt', 'na');
+                picture.setAttribute('height', '50px');
+                picture.setAttribute('width', '50px');
+                infowincontent.appendChild(picture);
+                //title
+                infowincontent.appendChild((document.createElement('br')));
+                var strong = document.createElement('strong');
+                strong.textContent = name;
+                infowincontent.appendChild(strong);
+                //address
+                infowincontent.appendChild((document.createElement('br')));
+                var text = document.createElement('text');
+                text.textContent = address;
+                infowincontent.appendChild(text);
+                //city
+                infowincontent.appendChild((document.createElement('br')));
+                var text1 = document.createElement('text');
+                text1.textContent = city;
+                infowincontent.appendChild(text1);
+                //type
+                infowincontent.appendChild((document.createElement('br')));
+                var text2 = document.createElement('text');
+                text2.textContent = type;
+                infowincontent.appendChild(text2);
+                //price
+                infowincontent.appendChild((document.createElement('br')));
+                var text3 = document.createElement('text');
+                text3.textContent = price + " €";
+                infowincontent.appendChild(text3);
+                //area
+                infowincontent.appendChild((document.createElement('br')));
+                var text4 = document.createElement('text');
+                text4.textContent = area + " mq2";
+                infowincontent.appendChild(text4);
+                //energetic class
+                infowincontent.appendChild((document.createElement('br')));
+                var text5 = document.createElement('text');
+                text5.textContent = "Classe energetica " + E_class;
+                infowincontent.appendChild(text5);
+                infowincontent.appendChild((document.createElement('br')));
+                infowincontent.appendChild((document.createElement('br')));
 
 
-			var marker = new google.maps.Marker({
-				map: map,
-				position: point
-				//later I shall add a custom label, maybe iterate over an array just to number each occurrence
-			});
+                //Gianmarco: creating the hidden form to pass infos...
+				var hiddenForm = document.createElement('form');
+                hiddenForm.name='myForm';
+                hiddenForm.method='GET';
+                hiddenForm.action='specsController';
+                infowincontent.appendChild(hiddenForm);
 
-			/* var myOptions = {
-			content: infowincontent,
-			disableAutoPan: false,
-			maxWidth: 0,
-			pixelOffset: new google.maps.Size(-140, 0),
-			zIndex: null,
-			boxStyle: {
-			background: "url('tipbox.gif') no-repeat",
-			opacity: 0.75,
-			width: "280px"
-			},
-			closeBoxMargin: "10px 2px 2px 2px",
-			closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
-			infoBoxClearance: new google.maps.Size(1, 1),
-			isHidden: false,
-			pane: "floatPane",
-			enableEventPropagation: false
-			};*/
+                var input1 = document.createElement('input');
+                input1.type='HIDDEN';
+                input1.name='name';
+                input1.value=name;
+                hiddenForm.appendChild(input1);
 
-			//var ib = new InfoBox(myOptions);
+                var input2 = document.createElement('input');
+                input2.type='HIDDEN';
+                input2.name='address';
+                input2.value=address;
+                hiddenForm.appendChild(input2);
+
+                var input3 = document.createElement('input');
+                input3.type='HIDDEN';
+                input3.name='city';
+                input3.value=city;
+                hiddenForm.appendChild(input3);
+
+                var input4 = document.createElement('input');
+                input4.type='HIDDEN';
+                input4.name='type';
+                input4.value=type;
+                hiddenForm.appendChild(input4);
+
+                var input5 = document.createElement('input');
+                input5.type='HIDDEN';
+                input5.name='price';
+                input5.value=price;
+                hiddenForm.appendChild(input5);
+
+                var input6 = document.createElement('input');
+                input6.type='HIDDEN';
+                input6.name='area';
+                input6.value=area;
+                hiddenForm.appendChild(input6);
+
+                var input7 = document.createElement('input');
+                input7.type='HIDDEN';
+                input7.name='eclass';
+                input7.value=E_class;
+                hiddenForm.appendChild(input7);
+
+                //var button = document.createElement('button');
+                //button.type='submit';
+
+                //button.onclick = function() {
+                //    hiddenForm.submit();
+				//};
+				//hiddenForm.appendChild(button);
+
+                //var text6 = document.createElement('strong');
+                var text6 = document.createElement('submit');
+                //text6.href=//"house_template.jsp?housename=" + name + "&houseaddress=" + address + "&housecity=" + city +
+							//		"&housetype=" + type + "&houseprice=" + price + "&housearea=" + area + "&houseclass=" + E_class;
+				//			"";
+                text6.textContent = "Request an Appointment";
+                hiddenForm.appendChild(text6);
+                text6.onclick = function() {
+                    hiddenForm.submit();
+				}
+                //you can even customize an icon -- I'm staying with the standard here...
 
 
-			var infoWindow = new google.maps.InfoWindow;
+                var marker = new google.maps.Marker({
+                    map: map,
+                    position: point
+                    //later I shall add a custom label, maybe iterate over an array just to number each occurrence
+                });
 
-			marker.addListener('click', function () {
-				//show info here
-				infoWindow.setContent(infowincontent);
-				infoWindow.open(map, marker);
-				//ib.open(theMap, marker);
-			});
+               /* var myOptions = {
+                    content: infowincontent,
+                    disableAutoPan: false,
+                    maxWidth: 0,
+                    pixelOffset: new google.maps.Size(-140, 0),
+                    zIndex: null,
+                    boxStyle: {
+                        background: "url('tipbox.gif') no-repeat",
+                        opacity: 0.75,
+                        width: "280px"
+                    },
+                    closeBoxMargin: "10px 2px 2px 2px",
+                    closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif",
+                    infoBoxClearance: new google.maps.Size(1, 1),
+                    isHidden: false,
+                    pane: "floatPane",
+                    enableEventPropagation: false
+                };*/
 
-			}())
-		}
-	}
+                //var ib = new InfoBox(myOptions);
+
+
+                var infoWindow = new google.maps.InfoWindow;
+
+                marker.addListener('click', function () {
+                    //show info here
+                    infoWindow.setContent(infowincontent);
+                    infoWindow.open(map, marker);
+                    //ib.open(theMap, marker);
+                });
+
+            }())
+        }
+    }
 
     /*
     Gianmarco: implement the downloadURL function -- signature: standard, from googlemapsAPI
@@ -529,4 +529,3 @@
 </html>
 
 <!-- <div style="display: none;" id="places">${requestScope['places']}</div> -->
-
