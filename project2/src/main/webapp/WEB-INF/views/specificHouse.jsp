@@ -99,9 +99,11 @@
             <div class="inner-heading">
               <h2>${requestScope['name']}</h2>
               <p style="color:white">
+              	  Indirizzo: ${requestScope['address']}<br>
 	              Tipo: ${requestScope['type']}<br>
 	              Prezzo: ${requestScope['price']} &euro; <br>
-	              Area: ${requestScope['area']} m<sup>2</sup>
+	              Area: ${requestScope['area']} m<sup>2</sup> <br>
+	              Classe Energetica: ${requestScope['eclass']}
               </p>
             </div>
           

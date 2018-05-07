@@ -284,6 +284,8 @@
     	
     	var infoWindow = new google.maps.InfoWindow;
     	
+    	
+    	
         var map = new google.maps.Map(document.getElementById('map'), 
         		{
             		center: new google.maps.LatLng(${lat},${lng}),
@@ -291,13 +293,17 @@
             		zoom: 12
             	}
         );
-
+        
 
         map.addListener('click', function(evt) {
           var lat = document.getElementById("lat");
           var lng = document.getElementById("lng");
           lat.value = evt.latLng.lat();
           lng.value = evt.latLng.lng();
+          //var baseMarker = new google.maps.Marker({
+      	//	position: new google.maps.LatLng(${lat},${lng}),
+      	//	map: map
+      	//  });
           document.getElementById("search").submit();
         });
         
@@ -318,7 +324,7 @@
 			var type = filteredPlaces[i].type;
 			var price = filteredPlaces[i].price;
 			var area = filteredPlaces[i].area;
-			var E_class = filteredPlaces[i].eClass;
+			var E_class = filteredPlaces[i].E_class;
 			var lat = filteredPlaces[i].latitude;
 			var lng = filteredPlaces[i].longitude;
 			var point = new google.maps.LatLng(lat, lng);

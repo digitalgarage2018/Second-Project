@@ -81,6 +81,12 @@ public class HouseSelectionController {
 		List<HouseEntity> houses = new ArrayList<HouseEntity>();
 
 		houses = houseSelectionService.select(parameters);
+		
+		/*
+		 * attenzione: se non si fa un controllo != null l'applicazione può esplodere!!!
+		 */
+//		System.out.println( "trovata casa con indirizzo: "+houses.get(0).getAddress() );//debug
+//		System.out.println( "trovata casa con classe energetica: "+houses.get(0).getE_class() );//debug
 
 		ModelAndView model = new ModelAndView();
 

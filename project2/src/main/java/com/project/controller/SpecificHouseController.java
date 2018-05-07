@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class SpecsController {
+public class SpecificHouseController {
 
     
 	@RequestMapping(value="specsController", method = RequestMethod.GET)
@@ -37,6 +37,8 @@ public class SpecsController {
 		String type = request.getParameter("type");
 		String price = request.getParameter("price");
 		String area = request.getParameter("area");
+		String address = request.getParameter("address");
+		String eclass = request.getParameter("eclass");
 
 		System.out.println("ricevuto il parametro nome: "+name);
 		
@@ -49,8 +51,10 @@ public class SpecsController {
 		model.addObject("type", type);
 		model.addObject("price", price);
 		model.addObject("area", area);
+		model.addObject("address", address);
+		model.addObject("eclass", eclass);
 		
-		model.setViewName("houseSpecific");
+		model.setViewName("specificHouse");
 		
     	return model;
 	}
