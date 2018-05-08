@@ -295,6 +295,20 @@
             		zoom: 12
             	}
         );
+
+        var mapCenter = new google.maps.Marker({
+            map: map,
+            position: new google.maps.LatLng(${lat},${lng}),
+            icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png'
+		});
+
+        var circle = new google.maps.Circle({
+            map: map,
+            radius: ${range * 1000},    //need the value from filters - get method multiplied per 1000 (km)
+            fillColor: '#d6d6d5',
+            clickable: false
+        });
+        circle.bindTo('center', mapCenter, 'position');
         
 
         map.addListener('click', function(evt) {
@@ -308,6 +322,7 @@
       	//  });
           document.getElementById("search").submit();
         });
+
         
         //filtered places:
         var filteredPlaces = JSON.parse(document.getElementById('places').innerHTML);
