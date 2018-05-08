@@ -77,5 +77,7 @@ public class HouseSelectionDaoImpl implements HouseSelectionDao{
 	private String zoneQueryBuilder(String longitude, String latitude, String range) {
 		return " and (POW ( ( 69.1 * ( b.longitude - " + longitude + " ) * cos( " + latitude + " / 57.3 ) ) , 2 ) " +
                 "+ POW( ( 69.1 * ( b.latitude - " + latitude + " ) ) , 2 ) ) < " + range;
+        //return " and 6371 * acos ( cos ( radians("+latitude+") ) * cos( radians( b.latitude ) ) * cos( radians( b.longitude ) - radians("+longitude+") ) + sin ( radians("+latitude+") ) * sin( radians( b.latitude ) ) < " + range;
+
 	}
 }

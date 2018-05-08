@@ -188,6 +188,7 @@
 							<input id="lng" type="hidden" name="longitude" value="${lng}" />
 						</form>
 
+						<div><p>Selected buildings in the following range: ${range} Km</p></div>
 						<table class="table table-dark" style="width: 100%">
 							<thead>
 								<tr>
@@ -285,14 +286,24 @@
     function initMap() {
     	
     	var infoWindow = new google.maps.InfoWindow;
-    	
-    	
+
+    	//Gianmarco: function to manipulate zoom detail on map...not that smart haha
+    	var zooming = function(distance) {
+    	    if (distance >= 15 && distance <= 20)
+    	        return 10;
+    	    else if (distance >= 10 && distance < 15)
+    	        return 11;
+    	    else if (distance >= 5 && distance < 10)
+    	        return 12;
+    	    else if (distance >= 0 && distance < 5)
+    	        return 13;
+		};
     	
         var map = new google.maps.Map(document.getElementById('map'), 
         		{
             		center: new google.maps.LatLng(${lat},${lng}),
             		//center: new google.maps.LatLng(45,-122),
-            		zoom: 12
+            		zoom: zooming(${range}) //Gianmarco: adapt zoom with range submitted: more range, less zoom...
             	}
         );
 
@@ -408,6 +419,7 @@
 			hiddenForm.name='myForm';
 			hiddenForm.method='GET';
 			hiddenForm.action='specsController';
+			hiddenForm.target='_blank';
 			infowincontent.appendChild(hiddenForm);
 
 			var input1 = document.createElement('input');
@@ -465,7 +477,7 @@
 			//text6.href=//"house_template.jsp?housename=" + name + "&houseaddress=" + address + "&housecity=" + city +
 			//		"&housetype=" + type + "&houseprice=" + price + "&housearea=" + area + "&houseclass=" + E_class;
 			//			"";
-			text6.textContent = "Request an Appointment";
+			text6.textContent = "View Details";
 			hiddenForm.appendChild(text6);
 			text6.onclick = function() {
 				hiddenForm.submit();
