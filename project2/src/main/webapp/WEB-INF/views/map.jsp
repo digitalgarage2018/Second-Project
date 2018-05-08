@@ -124,16 +124,17 @@
 
 						<form id="search" action="houseSelectionController" method="get">
 							<div class="form-group">
-								<label id="city" for="city">Seleziona città di partenza:</label>
+								<label id="city" for="city"><h5>Select the city of the departure:</h5></label>
 								<select name="city" style="width: 100%">
-									<option value="">Città</option>
+									<option value="">City</option>
 									<option value="Roma">Roma</option>
 									<option value="Milano">Milano</option>
 								</select>
 							</div>
+							<br>
 							<div class="form-group">
-								<small id="rangeHelp" class="form-text text-muted">Nel
-									raggio di <span id="rangeOutput">${range}</span> Km.
+								<small id="rangeHelp" class="form-text text-muted">Within
+								<span id="rangeOutput">${range}</span> Km.
 								</small>
 								<div>
 									<input id="range" name="range" data-slider-id='range'
@@ -141,27 +142,30 @@
 										data-slider-step="1" data-slider-value="${range}" />
 								</div>
 							</div>
+							<br>
 							<div class="form-group">
-								<label for="price">Prezzo:</label>
+								<label for="price">Price:</label>
 								<div>
-									<b>€0</b> <input id="price" name="price" type="text"
+									<b>€ 0 &#160</b> <input id="price" name="price" type="text"
 										class="form-control" value="" data-slider-min="10000"
 										data-slider-max="1000000" data-slider-step="1000"
-										data-slider-value="[${minPrice},${maxPrice}]"/> <b>€1000000</b>
+										data-slider-value="[${minPrice},${maxPrice}]"/> <b> &#160 € 1.000.000,00</b>
 								</div>
 							</div>
+							<br>
 							<div class="form-group">
 								<label for="area">Area:</label>
 								<div>
-									<b>0mq</b> <input id="area" name="area" type="text"
+									<b>20 m² &#160</b> <input id="area" name="area" type="text"
 										class="form-control" value="" data-slider-min="20"
 										data-slider-max="1000" data-slider-step="1"
-										data-slider-value="[${minArea},${maxArea}]"/> <b> 1000mq</b>
+										data-slider-value="[${minArea},${maxArea}]"/> <b>&#160 1.000 m²</b>
 								</div>
 							</div>
+							<br>
 							<div class="form-group">
 								<select name="type" style="width: 100%">
-									<option value="">Tipo</option>
+									<option value="">Type</option>
 									<option value="Bilocale" <c:if test = "${type=='Bilocale'}">selected</c:if>>Bilocale</option>
 									<option value="Trilocale"<c:if test = "${type=='Trilocale'}">selected</c:if>>Trilocale</option>
 									<option value="Quadrilocale"<c:if test = "${type=='Quadrilocale'}">selected</c:if>>Quadrilocale</option>
@@ -169,9 +173,10 @@
 									<option value="Loft"<c:if test = "${type=='Loft'}">selected</c:if>>Loft</option>
 								</select>
 							</div>
+							<br>
 							<div class="form-group">
 								<select name="E_class" style="width: 100%">
-									<option value="">Classe Energetica</option>
+									<option value="">Energetic-Class</option>
 									<option value="A"<c:if test = "${E_class=='A'}">selected</c:if>>A</option>
 									<option value="B"<c:if test = "${E_class=='B'}">selected</c:if>>B</option>
 									<option value="C"<c:if test = "${E_class=='C'}">selected</c:if>>C</option>
@@ -188,16 +193,16 @@
 							<input id="lat" type="hidden" name="latitude" value="${lat}" />
 							<input id="lng" type="hidden" name="longitude" value="${lng}" />
 						</form>
-
+						<br>
 						<div><p>Selected buildings in the following range: ${range} Km</p></div>
-						<table class="table table-dark" style="width: 100%">
+						<table class="table table-bordered" style="width: 100%">
 							<thead>
 								<tr>
-									<th scope="col">Nome</th>
-									<th scope="col">Prezzo</th>
+									<th scope="col">Name</th>
+									<th scope="col">Price</th>
 									<th scope="col">Area</th>
-									<th scope="col">Classe</th>
-									<th scope="col">Tipo</th>
+									<th scope="col">E-Class</th>
+									<th scope="col">Type</th>
 								</tr>
 							</thead>
 							<tbody>
