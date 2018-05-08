@@ -22,7 +22,7 @@ import javax.persistence.Table;
 import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
-@Table (name="WALLET")
+@Table (name="wallet")
 public class Wallet implements Serializable{
 	
 	/**
