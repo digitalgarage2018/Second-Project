@@ -50,7 +50,7 @@ public class UserDaoImpl implements UserDao {
 		Optional<User> result = Optional.empty();
 
 		//da migliorare la scrittura della query
-		Query q = entityManager.createQuery("SELECT u FROM user u WHERE u.username = :name");
+		Query q = entityManager.createQuery("SELECT u FROM User u WHERE u.username = :name");
 		q.setParameter("name", username);
 
 		try {
@@ -69,7 +69,7 @@ public class UserDaoImpl implements UserDao {
 		Optional<User> result = Optional.empty();
 
 		//da migliorare la scrittura della query
-		Query q = entityManager.createQuery("SELECT u FROM user u WHERE u.email = :name");
+		Query q = entityManager.createQuery("SELECT u FROM User u WHERE u.email = :name");
 		q.setParameter("name", email);
 
 		try {
