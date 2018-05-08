@@ -47,9 +47,9 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://localhost:3306/project_1" />
-		<property name="username" value="nde" />
-		<property name="password" value="$Digital0" />
+		<property name="url" value="jdbc:mysql://localhost:3306/prova4" />
+		<property name="username" value="root" />
+		<property name="password" value="" />
 	</bean>
 
 	<!-- This transaction manager is appropriate for applications that use a 
@@ -92,6 +92,10 @@
 	<mvc:resources mapping="/img/**" location="/img/"></mvc:resources>
 	<mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
 	<mvc:resources mapping="/skins/**" location="/skins/"></mvc:resources>
+	
+	<mvc:resources mapping="/resources/**" location="/resources/"></mvc:resources>
+	
+	<mvc:resources mapping="/about.html" location="/about.html"></mvc:resources>
 	
 
 </beans>
