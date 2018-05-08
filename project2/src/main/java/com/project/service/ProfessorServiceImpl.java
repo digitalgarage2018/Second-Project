@@ -13,8 +13,6 @@ public class ProfessorServiceImpl implements ProfessorService {
 
     public boolean insertMeaterial(MaterialEntity material){
 
-
-
         return professorDao.insertMeaterial(material);
     }
 }

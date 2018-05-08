@@ -22,16 +22,16 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 
     <!-- Global Stylesheets -->
     
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/animate/animate.min.css">
-    <link rel="stylesheet" href="css/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl-carousel/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/style.css">
-	 <link rel="stylesheet" type="text/css" href="css/bootstrap/bootstrap.min.css">
+    <link href="/resources/docente/css/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/resources/docente/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/resources/docente/css/animate/animate.min.css">
+    <link rel="stylesheet" href="/resources/docente/css/owl-carousel/owl.carousel.min.css">
+    <link rel="stylesheet" href="/resources/docente/css/owl-carousel/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/resources/docente/css/style.css">
+	 <link rel="stylesheet" type="text/css" href="/resources/docente/css/bootstrap/bootstrap.min.css">
     
     <!-- Core Stylesheets -->
-    <link rel="stylesheet" href="css/shop.css">
+    <link rel="stylesheet" href="/resources/docente/css/shop.css">
     
   </head>
 
@@ -128,15 +128,15 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 				<div class="col-10">
 					<label>Question:</label>
 					<div class="form-group">
-					  <textarea type="text" class="form-control" rows="1" id="questionArea"></textarea>
+					  <textarea type="text" class="form-control" rows="1" id="questionArea" name="question"></textarea>
 					</div>
 				</div>
 				<div class="col">
 					<label>Weight:</label>
-					<select class="form-control" id="weightArea">
-					  <option>1</option>
-					  <option>3</option>
-					  <option>5</option>
+					<select class="form-control" id="weightArea" name="weight">
+					  <option value="1" >1</option>
+					  <option value="3" >3</option>
+					  <option value="5" >5</option>
 					</select>
 				</div>
 			</div>
@@ -158,8 +158,8 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 				<button id="save_btn" class="border btn btn-success" align="center" type="button">Save</button>
 				<button type="button" class="border btn btn-danger" align="center">Cancel</button>
 			</div>
-
     </div>
+
 	</body>
 <br>
 	<script type="text/javascript">
@@ -174,7 +174,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 
 			// Add an empty question when the window is loaded.
 			window.onload = function() {
-					addQuestion();
+                addQuestion();
 			}
 
 			function selectQuestion( index )
@@ -303,13 +303,13 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 					if (completed) {
 							// FIXME Send a message using an ajax request.
 							$.ajax({
-							    url:"http://localhost:8080/Project1/createTestController",
+							    url:"http://localhost:8080/Project2/createTest",
 							    data:{
 											"key1":"value1",
 											"key2":"value2"
 									},
 							    type:'POST',
-							    dataType : 'json',   /* use 'json' for cross domain*/
+							    dataType : 'json',   //use 'json' for cross domain
 							    success:function( data, textStatus, jqXHR ) {
 							        // access response data
 											console.log( 'Service call success!' );
@@ -393,17 +393,17 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     </footer>
 
     <!--Global JavaScript -->
-    <script src="js/jquery/jquery.min.js"></script>
-    <script src="js/popper/popper.min.js"></script>
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script src="js/wow/wow.min.js"></script>
-    <script src="js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="/resources/js/jquery/jquery.min.js"></script>
+    <script src="/resources/docente/js/popper/popper.min.js"></script>
+    <script src="/resources/docente/js/bootstrap/bootstrap.min.js"></script>
+    <script src="/resources/docente/js/wow/wow.min.js"></script>
+    <script src="/resources/docente/js/owl-carousel/owl.carousel.min.js"></script>
 		
 
     <!-- Plugin JavaScript -->
-    <script src="js/jquery-easing/jquery.easing.min.js"></script> 
-    <script src="js/custom.js"></script> 
-	<script src="js/question.js"></script>
+    <script src="/resources/docente/js/jquery-easing/jquery.easing.min.js"></script> 
+    <script src="/resources/docente/js/custom.js"></script> 
+	<script src="/resources/docente/js/question.js"></script>
   </body>
 
 </html>

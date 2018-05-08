@@ -1,21 +1,24 @@
 package com.project.controller;
 
-import com.project.model.MaterialEntity;
-import com.project.service.ProfessorService;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletRequest;
+import com.project.model.MaterialEntity;
+import com.project.service.ProfessorService;
 
-
-import java.io.*;
-
-@Controller
+@RestController
 public class ProfessorController  {
 
     @Autowired
@@ -39,27 +42,27 @@ public class ProfessorController  {
     }
 
     @RequestMapping(value="/insertMaterialController", method = RequestMethod.POST)
-    public ModelAndView insertMaterial(HttpServletRequest request, @RequestParam("nomeVideo") String videoName,
-                                       @RequestParam("myInputsV") String videoLink,
-                                       @RequestParam("nomeSlide") String noteName,
-                                       @RequestParam("myInputsS") File file) throws IOException, ServletException {
+    public ModelAndView insertMaterial(HttpServletRequest request, @RequestParam("nameE") String examName,
+                                       @RequestParam("videos") String videoLink,
+                                       @RequestParam("idE") String id_exam,
+                                       @RequestParam("notes") File file) throws IOException, ServletException {
         ModelAndView model = new ModelAndView();
 
 
         //byte[] bytes = readBytesFromFile();
 
         byte[] bytes = new byte[1000];
-        MaterialEntity m = new MaterialEntity(noteName, bytes, videoLink, videoName);
+        MaterialEntity m = new MaterialEntity(id_exam, bytes, videoLink, examName);
 
         boolean t = professorService.insertMeaterial(m);
 
         if(t){
         model.addObject(request.getSession().getAttribute("professor"));
 
-        model.setViewName("professorWelcome");
+        model.setViewName("professor/welcomeDocente");
         }
         else{
-            model.setViewName("upLoadMaterial");
+            model.setViewName("error");
         }
         return model;
     }
@@ -73,6 +76,14 @@ public class ProfessorController  {
         inputStream.close();
 
         return fileBytes;
+    }
+
+    @RequestMapping(value="/createTest", method = RequestMethod.POST)
+    public ModelAndView createTest(HttpServletRequest request){
+        ModelAndView model = new ModelAndView();
+
+        model.setViewName("success");
+        return model;
     }
 
 }

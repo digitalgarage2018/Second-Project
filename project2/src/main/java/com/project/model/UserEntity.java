@@ -20,6 +20,10 @@ public class UserEntity implements Serializable {
         super();
     }
 
+    private static final long serialVersionUID = -4203404679059807682L;
+
+    public static final String STUDENT = "S", PROFESSOR = "P";
+
     public UserEntity(long id_user, String istitutional_email, String personal_email, String password, String name, String surname, Date date_of_birth, String type, List<ExamEntity> exam_list) {
         this.id_user = id_user;
         this.istitutional_email = istitutional_email;
@@ -65,7 +69,7 @@ public class UserEntity implements Serializable {
     @Column(name="type")
     private String type;
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private List<ExamEntity> exam_list;
 
 

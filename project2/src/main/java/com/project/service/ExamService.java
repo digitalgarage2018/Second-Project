@@ -7,5 +7,7 @@ import java.util.List;
 
 public interface ExamService {
 
-    public List<ExamEntity> getUserExams(UserEntity user);
+    public List<ExamEntity> getAllExams();
+
+    public List<ExamEntity> getAllExamsById( long userId );
 }

@@ -14,8 +14,17 @@ public class ExamServiceImpl implements ExamService {
     @Autowired
     ExamDao examDao;
 
-    public List<ExamEntity> getUserExams(UserEntity user){
+    @Override
+    public List<ExamEntity> getAllExams()
+    {
+        List<ExamEntity> exams = examDao.getAllExams();
+        return exams;
+    }
 
-        return examDao.getUserExams(user);
+    @Override
+    public List<ExamEntity> getAllExamsById( long userId )
+    {
+        List<ExamEntity> exams = examDao.getAllExams();
+        return exams;
     }
 }

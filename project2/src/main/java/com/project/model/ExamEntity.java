@@ -42,10 +42,11 @@ public class ExamEntity implements Serializable {
     @ManyToMany(mappedBy = "exam_list")
     private List<UserEntity> user_list;
 
-    @OneToMany()
+    @OneToMany
     private List<MaterialEntity> material_list;
 
-
+    @OneToMany(mappedBy = "exam_fk")
+    private List<QuestionEntity> question_list;
 
 
     public long getId_exam() {

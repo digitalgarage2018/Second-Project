@@ -1,5 +1,7 @@
 package com.project.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import com.project.model.ExamEntity;
@@ -8,6 +10,7 @@ import com.project.service.ExamService;
 import com.project.service.LoginService;
 
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -47,18 +50,24 @@ public class LoginController{
 
 		ModelAndView model = new ModelAndView();
 
-		if (!user.equals(null) && user.getType().equals("D")){
-			//user.setExam_list(examService.getUserExams(user));
-			model.addObject("examsPlan", new JSONArray( user.getExam_list()));
-			model.addObject("professor", user);
-			request.getSession().setAttribute("professor", user);
-			model.setViewName("professorWelcome");
+		if (user != null) {
+		    request.getSession().setAttribute( "user_id", user.getId_user() );
 
-			
-		}else{
-
-			model.setViewName("studentWelcome");
-
+			if (user.getType().equals( UserEntity.STUDENT )) {
+				model.addObject( "user", user  );
+			    if (user.getExam_list().isEmpty()) {
+			        List<ExamEntity> exams = examService.getAllExams();
+	                model.addObject( "exams", new JSONArray( exams ) );
+			        model.setViewName( "student/studyPlan" );
+                } else { // STUDENT_COMPLETE.
+                    model.setViewName( "student/homeStudent" );
+                }
+			} else {
+				model.addObject( "user", new JSONObject( user ) );
+			    model.setViewName( "professor/welcomeDocente" );
+			}
+		} else {
+			model.setViewName( "error" );
 		}
 		
     	return model;

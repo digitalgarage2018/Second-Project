@@ -7,9 +7,6 @@ import java.util.List;
 
 public interface ExamDao {
 
-    public ExamEntity getExamByID(long id_exam);
-
     public List<ExamEntity> getAllExams();
 
-    public List<ExamEntity> getUserExams(UserEntity user);
 }

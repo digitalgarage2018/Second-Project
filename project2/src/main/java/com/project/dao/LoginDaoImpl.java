@@ -19,20 +19,19 @@ public class LoginDaoImpl implements LoginDao {
 	private final static String LOGIN_STUDENT = "SELECT u FROM UserEntity u WHERE u.istitutional_email=?1";
 
 
-	public UserEntity getLoginByIstitutionalEmail(String istEmail) {
-
-		UserEntity u = null;
-
-		try {
-			if(entityManager.createQuery(LOGIN_STUDENT).setParameter(1, istEmail).getSingleResult()!=null)
-			{
-				u = (UserEntity) entityManager.createQuery(LOGIN_STUDENT).setParameter(1, istEmail).getSingleResult();
-			}
-		}catch(Exception e){
-			System.out.println("Utente non trovato");
-		}
-		return u;
-	}
+    @Override
+    public UserEntity getLoginByIstitutionalEmail( String istEmail )
+    {
+        UserEntity u = null;
+        try {
+            u = entityManager.createQuery( LOGIN_STUDENT, UserEntity.class )
+                    .setParameter( 1, istEmail )
+                    .getSingleResult();
+        }catch ( Exception e ){
+            System.out.println( "User '" + "' not found!" );
+        }
+        return u;
+    }
 
 	public UserEntity getLoginByID(long user_id){
 		return entityManager.find(UserEntity.class, user_id);
