@@ -38,9 +38,9 @@
 
 <style>
 #map {
-	height: 550px;
-	width: 550px;
-	float: none;
+	height: 600px;
+	width: 600px;
+	
 }
 </style>
 
@@ -116,6 +116,7 @@
 		</header>
 		<!-- end header -->
 
+<div>
 		<section id="content">
 			<div class="container">
 				<div style="width: 100%;">
@@ -124,7 +125,7 @@
 						<form id="search" action="houseSelectionController" method="get">
 							<div class="form-group">
 								<label id="city" for="city">Seleziona città di partenza:</label>
-								<select name="city" style="width: 100%"><br>
+								<select name="city" style="width: 100%">
 									<option value="">Città</option>
 									<option value="Roma">Roma</option>
 									<option value="Milano">Milano</option>
@@ -169,7 +170,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<select name="E_class" style="width: 100%"><br>
+								<select name="E_class" style="width: 100%">
 									<option value="">Classe Energetica</option>
 									<option value="A"<c:if test = "${E_class=='A'}">selected</c:if>>A</option>
 									<option value="B"<c:if test = "${E_class=='B'}">selected</c:if>>B</option>
@@ -212,17 +213,16 @@
 								</c:forEach>
 							</tbody>
 						</table>
-
-
-
 					</div>
-					<div style="float: right;">
-						<div id="map"></div>
-
 					</div>
+			
+			<div style="right:10%; position: fixed; top:20%;">
+						<div id="map" ></div>
 				</div>
-
-						<div style="display: none;" id="places">${requestScope['places']}</div>
+		</div>
+	</div>	
+	
+			<div style="display: none;" id="places">${requestScope['places']}</div>
 
 				<!-- divider -->
 				<div class="row">
@@ -233,7 +233,7 @@
 				<!-- end divider -->
 
 
-				<div id="sub-footer">
+		<%--		<div id="sub-footer">
 					<div class="container">
 						<div class="row">
 							<div class="span6">
@@ -250,8 +250,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
+				</div> --%>
+		
 			<a href="#" class="scrollup"><i
 				class="icon-chevron-up icon-square icon-32 active"></i></a>
 			<!-- javascript
