@@ -26,9 +26,9 @@ import com.project.model.User;
 public class IndexController {
 
     
-	@RequestMapping(value="/", method = RequestMethod.GET)
+	@RequestMapping(value= {"/","home"}, method = RequestMethod.GET)
 	public ModelAndView userCheck(HttpServletRequest request) {
-		
+
 		/*
 		 * recupero i parametri dalla view:
 		 * 1) controllo se è presente la sessione utente
@@ -55,6 +55,8 @@ public class IndexController {
 		
     	return model;
 	}
+	
+	
 	
 	
 }
