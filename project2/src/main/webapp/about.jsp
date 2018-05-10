@@ -7,6 +7,8 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 
 
 <!DOCTYPE html>
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html lang="en">
 
 <head>
@@ -15,17 +17,18 @@ License URL: https://creativecommons.org/licenses/by/4.0/
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Business Bootstrap Responsive Template</title>
-    <link rel="shortcut icon" href="img/favicon.ico">
+    <link rel="shortcut icon" href="/resources/img/favicon.ico">
+
     <!-- Global Stylesheets -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
-    <link href="css/bootstrap/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/animate/animate.min.css">
-    <link rel="stylesheet" href="css/owl-carousel/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl-carousel/owl.theme.default.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="<c:url value='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i'/>" rel="stylesheet">
+    <link href="<c:url value='/resources/css/bootstrap/bootstrap.min.css'/>" rel="stylesheet">
+    <link rel="stylesheet" href="<c:url value='/resources/font-awesome-4.7.0/css/font-awesome.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/animate/animate.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/owl-carousel/owl.carousel.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/owl-carousel/owl.theme.default.min.css'/>">
+    <link rel="stylesheet" href="<c:url value='/resources/css/style.css'/>">
     <!-- Core Stylesheets -->
-    <link rel="stylesheet" href="css/about.css">
+    <link rel="stylesheet" href="<c:url value='/resources/css/about.css'/>">
 </head>
 
 <body id="page-top">
@@ -109,9 +112,9 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                       <form id="login-form">
                           <h3 class="text-center">Login</h3>
                           <div class="modal-body">
-                              <label for="username">Email istituzionale</label> 
+                              <label for="login_username">Email istituzionale</label>
                               <input id="login_username" class="form-control" type="text" placeholder="Inserisci username " required>
-                              <label for="username">Password</label> 
+                              <label for="login_password">Password</label>
                               <input id="login_password" class="form-control" type="password" placeholder="Password" required>
                               <div class="checkbox">
                                   <label>
@@ -131,9 +134,9 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                       <form id="register-form" style="display:none;">
                           <h3 class="text-center">Register</h3>
                           <div class="modal-body"> 
-                              <label for="username">Nome</label> 
+                              <label for="register_username">Nome</label>
                               <input id="register_username" class="form-control" type="text" placeholder="Inserisci nome" required>
-                              <label for="cognome">Cognome</label> 
+                              <label for="register_surname">Cognome</label>
 							  <input id="register_surname" class="form-control" type="text" placeholder="Inserisci cognome" required>
 							  <p>Data di nascita : <input type="date" name="dateOfBirth" required > </p>
                               <label for="register_email">Email</label> 
@@ -181,7 +184,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 						Università telematica<br>
 						in Italia</h1>
 					<br> </br>		
-					<center>
+
 						<img src="img/logo.png">
 					</center>
 					<br> </br>
@@ -268,14 +271,15 @@ License URL: https://creativecommons.org/licenses/by/4.0/
         </a>
     </footer>
     <!--Global JavaScript -->
-    <script src="js/jquery/jquery.min.js"></script>
-    <script src="js/popper/popper.min.js"></script>
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script src="js/wow/wow.min.js"></script>
-    <script src="js/owl-carousel/owl.carousel.min.js"></script>
+    <script src="<c:url value='/resources/js/jquery/jquery.min.js'/>"></script>
+    <script src="<c:url value='/resources/js/popper/popper.min.js'/>"></script>
+    <script src="<c:url value='/resources/js/bootstrap/bootstrap.min.js'/>"></script>
+    <script src="<c:url value='/resources/js/wow/wow.min.js'/>"></script>
+    <script src="<c:url value='/resources/js/owl-carousel/owl.carousel.min.js'/>"></script>
+
     <!-- Plugin JavaScript -->
-    <script src="js/jquery-easing/jquery.easing.min.js"></script>
-    <script src="js/custom.js"></script>
+    <script src="<c:url value='/resources/js/jquery-easing/jquery.easing.min.js'/>"></script>
+    <script src="<c:url value='/resources/js/custom.js'/>"></script>
 </body>
 
 </html>

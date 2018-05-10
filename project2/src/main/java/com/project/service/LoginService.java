@@ -8,4 +8,5 @@ public interface LoginService {
 	public UserEntity authenticateUserByEmail(UserEntity userEntity);
 
 
+	public UserEntity getUserByID(long id_user);
 	}

@@ -62,9 +62,8 @@ License URL: https://creativecommons.org/licenses/by/4.0/
       <!-- Navbar -->
       <nav class="navbar navbar-expand-lg navbar-light" id="mainNav" data-toggle="affix">
         <div class="container">
-          <a class="navbar-brand smooth-scroll" href="index.html">
             <img src="<c:url value='/resources/img/logo.png'/>" alt="logo">
-          </a> 
+
 		  <p>
 <br><br>
 <br><br>
@@ -76,13 +75,13 @@ License URL: https://creativecommons.org/licenses/by/4.0/
           </button>  
           <div class="collapse navbar-collapse" id="navbarResponsive">
             <ul class="navbar-nav ml-auto">
-                <li class="nav-item" ><a class="nav-link smooth-scroll" href="index.html">Home</a></li>
+                <li class="nav-item" ><a class="nav-link smooth-scroll" href="index.jsp">Home</a></li>
                 
 				<li class="nav-item dropdown" >
-                <a class="nav-link dropdown-toggle smooth-scroll" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chi siamo</a> 
+                <a class="nav-link dropdown-toggle smooth-scroll" href="about.jsp" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chi siamo</a>
                   <div class="dropdown-menu dropdown-cust" aria-labelledby="navbarDropdownMenuLink">
-                    <a class="dropdown-item" href="about.html">I nostri servizi</a>
-                    <a class="dropdown-item" href="about.html">I nostri Docenti</a>
+                    <a class="dropdown-item" href="about.jsp">I nostri servizi</a>
+                    <a class="dropdown-item" href="about.jsp">I nostri Docenti</a>
                   </div>
                 </li>
             </ul>  
@@ -443,8 +442,8 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                   <div class="heading-footer"><h2>Link utili</h2></div>
                   <ul class="list-unstyled link-list">
 
-                    <li><a href="about.html">Chi siamo</a></li> 
-                    <li><a href="project.html">Esami</a></li> 
+                    <li><a href="about.jsp">Chi siamo</a></li>
+                    <li>Esami</li>
                     
                   </ul>
                 </div>
