@@ -1,17 +1,19 @@
 package com.project.service;
 
-import com.project.dao.RegisterDao;
-import com.project.model.UserEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import com.project.dao.RegisterDao;
+import com.project.model.UserEntity;
 
 
 @Service
 public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
-    RegisterDao registerDao;
-
+    private RegisterDao registerDao;
+    
+    @Override
     public boolean checkUser(UserEntity newUser) {
         Long checkedUser = registerDao.getCheckedUser(newUser);
 
@@ -20,15 +22,20 @@ public class RegisterServiceImpl implements RegisterService {
         }
         return true;
     }
-
+    
+    @Override
     public UserEntity insertNewUser(UserEntity newUser) {
 
         String mail = getNewIstitutionalEmail(newUser);
         newUser.setIstitutional_email(mail);
 
-        return registerDao.insertNewUser(newUser);
+        UserEntity user = registerDao.insertNewUser( newUser );
+        // FIXME non va
+        //sendEmail( mail );
+        
+        return user;
     }
-
+    
     private String getNewIstitutionalEmail(UserEntity newUser){
 
         String n = newUser.getName().substring(0,1);
