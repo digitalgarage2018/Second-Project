@@ -8,13 +8,17 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="question")
-public class QuestionEntity implements Serializable {
+public class QuestionEntity implements Serializable
+{
+    private static final long serialVersionUID = -6755626386221321785L;
+
 
     public QuestionEntity() {
         super();
     }
 
-    public QuestionEntity(String question, int weight, String answer1, String answer2, String answer3, String answer4, int correct_answer) {
+    public QuestionEntity(String question, int weight, String answer1, String answer2, String answer3, String answer4, int correct_answer)
+    {
         this.question = question;
         this.weight = weight;
         this.answer1 = answer1;
@@ -32,8 +36,6 @@ public class QuestionEntity implements Serializable {
     @NotEmpty
     private String question;
 
-    @NotBlank
-    @NotEmpty
     private int weight;
 
     private String answer1;
@@ -44,12 +46,7 @@ public class QuestionEntity implements Serializable {
 
     private String answer4;
 
-    @NotBlank
-    @NotEmpty
     private int correct_answer;
-
-    @ManyToOne
-    private ExamEntity exam_fk;
 
 
     public long getId_question() {
@@ -114,13 +111,5 @@ public class QuestionEntity implements Serializable {
 
     public void setCorrect_answer(int correct_answer) {
         this.correct_answer = correct_answer;
-    }
-
-    public ExamEntity getExam_fk() {
-        return exam_fk;
-    }
-
-    public void setExam_fk(ExamEntity exam_fk) {
-        this.exam_fk = exam_fk;
     }
 }

@@ -1,12 +1,12 @@
 package com.project.service;
 
-import com.project.dao.ExamDao;
-import com.project.model.ExamEntity;
-import com.project.model.UserEntity;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+import com.project.dao.ExamDao;
+import com.project.model.ExamEntity;
 
 @Service
 public class ExamServiceImpl implements ExamService {

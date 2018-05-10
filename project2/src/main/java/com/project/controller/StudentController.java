@@ -1,11 +1,8 @@
 
 package com.project.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
-import com.project.model.UserEntity;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,10 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.project.model.ExamEntity;
-import com.project.service.ExamService;
-import com.project.service.StudentService;
+import com.project.model.UserEntity;
 import com.project.service.LoginService;
+import com.project.service.StudentService;
 
 
 @Controller
@@ -24,9 +20,6 @@ public class StudentController
 {
     @Autowired
     private StudentService studentService;
-    
-    @Autowired
-    private ExamService examService;
 
     @Autowired
     private LoginService loginService;

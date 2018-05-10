@@ -4,57 +4,48 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import com.project.model.ExamEntity;
-import com.project.model.UserEntity;
-import com.project.service.ExamService;
-import com.project.service.LoginService;
-
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.model.ExamEntity;
+import com.project.model.UserEntity;
+import com.project.service.ExamService;
+import com.project.service.LoginService;
 
 @Controller
 public class LoginController{
 
 	@Autowired
     private LoginService loginService;
+	@Autowired
+	private ExamService examService;
 
 	@Autowired
 	private UserEntity userEntity;
 
-	@Autowired
-	private ExamService examService;
-
-
-	@RequestMapping(value="/loginController", method = RequestMethod.POST)
-	public ModelAndView userCheck(HttpServletRequest request) {
-		String email = request.getParameter("username");
-		String pwd = request.getParameter("password");
-
-
-		userEntity.setIstitutional_email(email);
-		userEntity.setPassword(pwd);
-
-		UserEntity user = loginService.authenticateUserByEmail(userEntity);
-
-		for ( ExamEntity corsoStudio : user.getExam_list() ) {
-			System.out.println( corsoStudio.getName() );
-		}
-
+	@RequestMapping(value="/loginController", method=RequestMethod.POST)
+	public ModelAndView userCheck( HttpServletRequest request )
+	{
+		String email = request.getParameter( "username" );
+		String pwd   = request.getParameter( "password" );
+		
+		userEntity.setIstitutional_email( email );
+		userEntity.setPassword( pwd );
+		
+		UserEntity user = loginService.authenticateUserByEmail( userEntity );
+		
 		ModelAndView model = new ModelAndView();
-
+		
 		if (user != null) {
 		    request.getSession().setAttribute( "user_id", user.getId_user() );
-
+			model.addObject( "user", new JSONObject( user ) );
 			if (user.getType().equals( UserEntity.STUDENT )) {
-				model.addObject( "user", user  );
+			    model.addObject( "user", user );
 			    if (user.getExam_list().isEmpty()) {
 			        List<ExamEntity> exams = examService.getAllExams();
 	                model.addObject( "exams", new JSONArray( exams ) );
@@ -63,7 +54,7 @@ public class LoginController{
                     model.setViewName( "student/homeStudent" );
                 }
 			} else {
-				model.addObject( "user", new JSONObject( user ) );
+			    model.addObject( "user", new JSONObject( user ) );
 			    model.setViewName( "professor/welcomeDocente" );
 			}
 		} else {
@@ -71,6 +62,5 @@ public class LoginController{
 		}
 		
     	return model;
-
 	}
 }
