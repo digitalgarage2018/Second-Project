@@ -190,7 +190,7 @@
         <div class="row">
             <div class="span4">
               <div class="logo">
-                <a href="/Project2/"><img src="img/logo.png" alt="" class="logo" /></a>
+                <a href="<%request.getContextPath();%>"><img src="img/logo.png" alt="" class="logo" /></a>
               </div>
             </div>
             <div class="span8">
