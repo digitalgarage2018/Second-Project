@@ -78,6 +78,13 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                 <li class="nav-item" ><a class="nav-link smooth-scroll" href="<c:url value='index.jsp'/>">Home</a></li>
             </ul>  
           </div>
+          <form action="uploadSession" method="get" id="login-form">
+              <div class="modal-footer text-center">
+                  <div>
+                      <button type="submit" class="btn btn-general btn-white">Carica appello</button>
+                  </div>
+                 </div>
+          </form>
         </div>
       </nav>
 	  <br>

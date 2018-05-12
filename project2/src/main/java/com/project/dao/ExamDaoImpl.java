@@ -18,7 +18,8 @@ public class ExamDaoImpl implements ExamDao{
     public EntityManager entityManager;
 
     private static final String EXAM_QUERY = "SELECT e FROM ExamEntity e";
-
+    private static final String ALL_PROFESSOR_EXAMS="SELECT id_exam,credits,description,name FROM exam,user_exam WHERE exam.id_exam=user_exam.exam_list_id_exam AND user_exam.user_list_id_user=?";
+    
     @Override
     public List<ExamEntity> getAllExams()
     {
@@ -33,5 +34,18 @@ public class ExamDaoImpl implements ExamDao{
         }
         return exams;
     }
+    @Override
+   	public List<ExamEntity> getAllExamByProfId(long id_user) {
+   		List<ExamEntity>exams=null;
+   	        try {
+   	            exams =(List<ExamEntity>) entityManager.createNativeQuery(ALL_PROFESSOR_EXAMS, ExamEntity.class ).setParameter( 1, id_user ).getResultList();
+   	            
+   	        } catch ( Exception e ) {
+   	            e.printStackTrace();
+   	            throw e;
+   	            // Empty body.
+   	        }
+   	        return exams;
+   	}
 
 }

@@ -1,6 +1,11 @@
 package com.project.service;
 
+import javax.mail.internet.MimeMessage;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Service;
 
 import com.project.dao.RegisterDao;
@@ -12,6 +17,9 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Autowired
     private RegisterDao registerDao;
+    
+    @Autowired
+    private JavaMailSender mailSenderObj;
     
     @Override
     public boolean checkUser(UserEntity newUser) {
@@ -30,8 +38,15 @@ public class RegisterServiceImpl implements RegisterService {
         newUser.setIstitutional_email(mail);
 
         UserEntity user = registerDao.insertNewUser( newUser );
-        // FIXME non va
-        //sendEmail( mail );
+        mailSenderObj.send(new MimeMessagePreparator() {
+            public void prepare(MimeMessage mimeMessage) throws Exception {
+                MimeMessageHelper mimeMsgHelperObj = new MimeMessageHelper(mimeMessage, true, "UTF-8");
+                mimeMsgHelperObj.setTo( user.getPersonal_email() );
+                mimeMsgHelperObj.setFrom( "unimarina.noreply@gmail.com" );
+                mimeMsgHelperObj.setText( "Ciao mondo!" );
+                mimeMsgHelperObj.setSubject( "First email" );
+            }
+        });
         
         return user;
     }

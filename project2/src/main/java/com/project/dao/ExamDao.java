@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface ExamDao {
 
-    public List<ExamEntity> getAllExams();
+	public List<ExamEntity> getAllExams();
+    public List<ExamEntity> getAllExamByProfId(long id_user);
 
 }
