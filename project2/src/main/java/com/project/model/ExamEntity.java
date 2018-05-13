@@ -3,20 +3,14 @@ package com.project.model;
 import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
 @Entity
+@Component
 @Table (name="exam")
 public class ExamEntity implements Serializable
 {
@@ -26,18 +20,17 @@ public class ExamEntity implements Serializable
         super();
     }
     
-    public ExamEntity( long id_exam, String name, String description, int credits,List<UserEntity> user_list )
+    public ExamEntity( long id_exam, String name, String description, int credits)
     {
         this.id_exam = id_exam;
         this.name = name;
         this.description = description;
         this.credits = credits;
-        this.user_list = user_list;
     }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @NotEmpty
+    @NotNull
     @Column(name="id_exam", nullable=false)
     private long id_exam;
 
@@ -50,15 +43,19 @@ public class ExamEntity implements Serializable
     @Column(name="credits")
     private int credits;
 
-    @ManyToMany(mappedBy="exam_list")
-    private List<UserEntity> user_list;
+    @ManyToMany(mappedBy = "exam_list")
+    private List<UserEntity> users_list;
     
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="exam_id_fk")
     private List<MaterialEntity> material_list;
     
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name="exam_id_fk")
     private List<QuestionEntity> question_list;
-    
+
+    @OneToMany(mappedBy = "exam")
+    private List<SessionEntity> session_list;
 
     public long getId_exam() {
         return id_exam;
@@ -91,14 +88,6 @@ public class ExamEntity implements Serializable
     public void setCredits(int credits) {
         this.credits = credits;
     }
-
-    public List<UserEntity> getUser_list() {
-        return user_list;
-    }
-
-    public void setUser_list(List<UserEntity> user_list) {
-        this.user_list = user_list;
-    }
     
     public List<MaterialEntity> getMaterial_list() {
         return material_list;
@@ -114,5 +103,21 @@ public class ExamEntity implements Serializable
 
     public void setQuestion_list( List<QuestionEntity> material_list) {
         this.question_list = material_list;
+    }
+
+    public List<SessionEntity> getSession_list() {
+        return session_list;
+    }
+
+    public void setSession_list(List<SessionEntity> session_list) {
+        this.session_list = session_list;
+    }
+
+    public List<UserEntity> getUsers_list() {
+        return users_list;
+    }
+
+    public void setUsers_list(List<UserEntity> users_list) {
+        this.users_list = users_list;
     }
 }

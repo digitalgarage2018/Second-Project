@@ -39,6 +39,9 @@
 			<props>
 				<prop key="hibernate.hbm2ddl.auto">update</prop>
 				<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
+                <prop key="hibernate.show_sql"> true </prop>
+                <prop key="hibernate.format_sql"> true </prop>
+                <prop key="hibernate.use_sql_comments"> true </prop>
 			</props>
 		</property>
 	</bean>
@@ -48,9 +51,9 @@
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
-		<property name="url" value="jdbc:mysql://138.68.133.189:3306/unimarina2" />
-		<property name="username" value="digitalgarage" />
-		<property name="password" value="digipassword" />
+		<property name="url" value="jdbc:mysql://localhost:3306/unimarina2" />
+		<property name="username" value="QDJ" />
+		<property name="password" value="Bellapete_1" />
 	</bean>
 
 	<!-- This transaction manager is appropriate for applications that use a 

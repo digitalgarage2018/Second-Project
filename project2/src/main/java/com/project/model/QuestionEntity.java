@@ -2,11 +2,14 @@ package com.project.model;
 
 import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
 @Entity
+@Component
 @Table(name="question")
 public class QuestionEntity implements Serializable
 {
@@ -29,6 +32,7 @@ public class QuestionEntity implements Serializable
     }
 
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id_question;
 
@@ -47,6 +51,7 @@ public class QuestionEntity implements Serializable
     private String answer4;
 
     private int correct_answer;
+
 
 
     public long getId_question() {

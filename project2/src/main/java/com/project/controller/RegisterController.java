@@ -29,7 +29,6 @@ public class RegisterController {
         newUser.setPersonal_email(request.getParameter("personalEmail"));
         newUser.setPassword(request.getParameter("password"));
         newUser.setType("S");
-        //newUser.setDate_of_birth(request.getParameter("dateOfBirth"));
         Date dateOfBirthFormatted = new Date();
         String dateOfBirth = request.getParameter("dateOfBirth");
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd");

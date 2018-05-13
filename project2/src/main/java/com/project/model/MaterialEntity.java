@@ -1,15 +1,14 @@
 package com.project.model;
 
+import org.springframework.stereotype.Component;
+
 import java.io.Serializable;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
+@Component
 @Table(name="material")
 public class MaterialEntity implements Serializable
 {
@@ -30,6 +29,7 @@ public class MaterialEntity implements Serializable
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull
     @Column(name="id_material", nullable=false)
     private long id_material;
     
@@ -38,6 +38,8 @@ public class MaterialEntity implements Serializable
     
     @Column(name="type")
     private String type;
+
+
 
     public long getId_material() {
         return id_material;
@@ -62,4 +64,5 @@ public class MaterialEntity implements Serializable
     public String getType() {
         return type;
     }
+
 }

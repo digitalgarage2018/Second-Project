@@ -1,5 +1,6 @@
 package com.project.dao;
 
+import com.project.model.UniversityCareerEntity;
 import com.project.model.UserEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,6 +33,10 @@ public class RegisterDaoImpl implements RegisterDao {
 
     public UserEntity insertNewUser(UserEntity userEntity) {
 
+        UniversityCareerEntity career = new UniversityCareerEntity();
+        entityManager.persist(career);
+
+        userEntity.setCareer(career);
         entityManager.persist(userEntity);
 
         return userEntity;

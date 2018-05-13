@@ -59,6 +59,13 @@
 					</div>
 				</div>
             </form>
+            <form id="login-form" action="/bookSession" method="post">
+                <div class="modal-body">
+                    <div>
+                        <button type="submit" class="btn btn-general btn-white">Prenota Appello</button>
+                    </div>
+                </div>
+            </form>
             <a class="dropdown-item"  target="_empty" >Segui Lezioni Online</a>
         </div>
 	</li>

@@ -69,9 +69,14 @@ public class UserEntity implements Serializable {
     @Column(name="type")
     private String type;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private List<ExamEntity> exam_list;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "career_id")
+    private UniversityCareerEntity career;
 
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinTable(joinColumns={@JoinColumn(name="user_id_fk")},
+            inverseJoinColumns={@JoinColumn(name="exam_id_fk")})
+    private List<ExamEntity> exam_list;
 
 
     public long getId_user() {
@@ -144,5 +149,13 @@ public class UserEntity implements Serializable {
 
     public void setExam_list(List<ExamEntity> exam_list) {
         this.exam_list = exam_list;
+    }
+
+    public UniversityCareerEntity getCareer() {
+        return career;
+    }
+
+    public void setCareer(UniversityCareerEntity career) {
+        this.career = career;
     }
 }

@@ -2,6 +2,7 @@ package com.project.controller;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 
 import org.json.JSONArray;
@@ -29,8 +30,7 @@ public class LoginController{
 	private UserEntity userEntity;
 
 	@RequestMapping(value="/loginController", method=RequestMethod.POST)
-	public ModelAndView userCheck( HttpServletRequest request )
-	{
+	public ModelAndView userCheck( HttpServletRequest request ) throws MessagingException {
 		String email = request.getParameter( "username" );
 		String pwd   = request.getParameter( "password" );
 		

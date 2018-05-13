@@ -1,6 +1,5 @@
 package com.project.dao;
 
-import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
