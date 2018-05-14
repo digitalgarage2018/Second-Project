@@ -1,5 +1,6 @@
 package com.project.model;
 
+import org.hibernate.type.descriptor.sql.TinyIntTypeDescriptor;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -35,11 +36,8 @@ public class SessionEntity implements Serializable {
     @Temporal(TemporalType.DATE)
     private Date date_end;
 
+    @Column(columnDefinition = "TINYINT", length = 4)
     private boolean open;
-
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_exam")
-    private ExamEntity exam;
 
     public long getId_session() {
         return id_session;
@@ -73,11 +71,4 @@ public class SessionEntity implements Serializable {
         this.open = open;
     }
 
-    public ExamEntity getFk_exam() {
-        return exam;
-    }
-
-    public void setFk_exam(ExamEntity fk_exam) {
-        this.exam = fk_exam;
-    }
 }

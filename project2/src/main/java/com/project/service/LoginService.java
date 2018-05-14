@@ -9,6 +9,7 @@ public interface LoginService {
 
 	public UserEntity authenticateUserByEmail(UserEntity userEntity) throws MessagingException;
 
-
 	public UserEntity getUserByID(long id_user);
-	}
+
+}
+

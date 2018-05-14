@@ -1,9 +1,10 @@
 
 package com.project.controller;
 
-import javax.mail.MessagingException;
 import javax.servlet.http.HttpServletRequest;
 
+import com.project.model.ExamEntity;
+import com.project.service.ExamService;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +17,7 @@ import com.project.model.UserEntity;
 import com.project.service.LoginService;
 import com.project.service.StudentService;
 
-import java.util.HashSet;
+import java.util.List;
 
 
 @RestController
@@ -27,6 +28,9 @@ public class StudentController
 
     @Autowired
     private LoginService loginService;
+
+    @Autowired
+    private ExamService examService;
     
     
     @RequestMapping(value="/studyPlan", method = RequestMethod.POST)
@@ -57,13 +61,14 @@ public class StudentController
     }
 
     @RequestMapping(value="/bookSession", method = RequestMethod.POST)
-    public ModelAndView bookSession(HttpServletRequest request) throws MessagingException {
+    public ModelAndView bookSession(HttpServletRequest request) {
         ModelAndView model = new ModelAndView();
         long userId = (Long) request.getSession().getAttribute( "user_id" );
 
         UserEntity user = loginService.getUserByID( userId );
 
-        request.setAttribute( "exams", new JSONArray( new HashSet<>(user.getExam_list())) );
+        List<ExamEntity> exams = examService.getAllExamsById(user);
+        request.setAttribute( "exams", new JSONArray( exams ));
 
         model.setViewName("student/bookingSession");
 

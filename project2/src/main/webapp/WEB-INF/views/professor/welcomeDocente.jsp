@@ -54,7 +54,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
               </div> 
               <div class="col-md-5">
                 <ul class="list-inline top-data">
-                  <li><a href="<c:url value='index.jsp'/>" class="log-top" data-target="#login-modal">Disconnetti</a></li>  
+                  <li><a href="<c:url value='index.jsp'/>" class="log-top" data-target="#login-modal">Disconnetti</a></li>
                 </ul>
               </div>
             </div>
@@ -78,6 +78,13 @@ License URL: https://creativecommons.org/licenses/by/4.0/
                 <li class="nav-item" ><a class="nav-link smooth-scroll" href="<c:url value='index.jsp'/>">Home</a></li>
             </ul>  
           </div>
+          <form action="uploadSession" method="get" id="login-form">
+              <div class="modal-footer text-center">
+                  <div>
+                      <button type="submit" class="btn btn-general btn-white">Carica appello</button>
+                  </div>
+                 </div>
+          </form>
         </div>
       </nav>
 	  <br>
@@ -203,7 +210,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 	<script>
 	const LIMIT_VIDEO    = 3;
 	const LIMIT_DISPENSA = 3;
-	
+
 	let examClass = class {
   		constructor( exam, counterDispensa, counterVideo ) {
   			this.exam = exam;
@@ -311,7 +318,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 			}
 			
 			$.ajax({
-				url:"http://localhost:8080/Project2/uploadController",
+				url:"http://localhost:8080/uploadController",
 				data:{
 					"idE":exam["exam"]["id_exam"],
 					"nameE":exam["exam"]["name"],
@@ -602,7 +609,7 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 	
 		if (completed) {
 			$.ajax({
-			    url:"http://localhost:8080/Project2/uploadQuestions",
+			    url:"http://localhost:8080/uploadQuestions",
 			    data:{
 			    	"exam_id":user["exam_list"][0]["id_exam"],
 					"questions":JSON.stringify( {'questions':qList} )

@@ -37,10 +37,6 @@ public class AttempEntity implements Serializable {
 
     private int mark;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fk_career")
-    private UniversityCareerEntity career;
-
     public void increment(){
         count++;
     }
@@ -84,4 +80,12 @@ public class AttempEntity implements Serializable {
     public void setMark(int mark) {
         this.mark = mark;
     }
+
+    /*public UniversityCareerEntity getCareer() {
+        return career;
+    }
+
+    public void setCareer(UniversityCareerEntity career) {
+        this.career = career;
+    }*/
 }

@@ -43,6 +43,7 @@ public class LoginController{
 		
 		if (user != null) {
 		    request.getSession().setAttribute( "user_id", user.getId_user() );
+			request.getSession().setAttribute( "user", user );
 			model.addObject( "user", new JSONObject( user ) );
 			if (user.getType().equals( UserEntity.STUDENT )) {
 			    model.addObject( "user", user );

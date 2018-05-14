@@ -9,5 +9,5 @@ public interface ExamService {
 
     public List<ExamEntity> getAllExams();
 
-    public List<ExamEntity> getAllExamsById( long userId );
+    public List<ExamEntity> getAllExamsById( UserEntity user );
 }

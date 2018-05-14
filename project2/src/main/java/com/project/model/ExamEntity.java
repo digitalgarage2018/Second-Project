@@ -6,6 +6,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.stereotype.Component;
 
@@ -37,7 +39,7 @@ public class ExamEntity implements Serializable
     @Column(name="name")
     private String name;
 
-    @Column(name="description")
+    @Column(name="description", length = 1000)
     private String description;
 
     @Column(name="credits")
@@ -54,7 +56,8 @@ public class ExamEntity implements Serializable
     @JoinColumn(name="exam_id_fk")
     private List<QuestionEntity> question_list;
 
-    @OneToMany(mappedBy = "exam")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @JoinColumn(name = "fk_exam")
     private List<SessionEntity> session_list;
 
     public long getId_exam() {

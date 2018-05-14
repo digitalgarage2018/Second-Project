@@ -26,7 +26,8 @@ public class UniversityCareerEntity implements Serializable {
     @Column(name="id_career", nullable=false)
     private long id_career;
 
-    @OneToMany(mappedBy = "career")
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "fk_career")
     private List<AttempEntity> attemps_list;
 
     public long getId_career() {
