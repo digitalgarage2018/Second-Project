@@ -236,34 +236,21 @@ License URL: https://creativecommons.org/licenses/by/4.0/
         let testRow     = row.insertCell( 3 );
         let saveRow		= row.insertCell( 4 );
         
+        let index_btn = index;
+        
         nameRow.innerHTML     = "<div class='row'><div class='col-sm-10 prod-desc'><h6 class='nomargin' align='center'>" + exam["name"] + "</h6></div></div>";
-        videoRow.innerHTML    = "<div id='div_adder_" + index + "'><input type='text' id='video_form_" + index + "_1' class='form-control text-center'></form></div><p><input type='button' align='right' value='Aggiungi video' onclick=addVideo('" + index + "')></p>";
-        dispensaRow.innerHTML = "<div id='dispensa_adder_" + index + "'><form action='upload.asp' name='p' method='post'> <input id='dispensa_form_" + index + "_1' type='file' class='form-control text-center' style='display: none;'><input type='button' value='Browse' onclick=document.getElementById('dispensa_form_" + index + "_1').click(); /></form><input type='text' id='dispensa_text_" + index + "_1' class='form-control text-center' readOnly='true'></form></div><div style='float:right'><input type='button' align='right' value='Aggiungi dispensa' onclick=addDispensa('" + index + "')></div>";
+        videoRow.innerHTML    = "<div id='div_adder_" + index_btn + "'><input type='text' id='video_form_" + index_btn + "_1' class='form-control text-center'></form></div><p><input type='button' align='right' value='Aggiungi video' onclick=addVideo('" + index_btn + "')></p>";
+        dispensaRow.innerHTML = "<div id='dispensa_adder_" + index_btn + "'><form action='upload.asp' name='p' method='post'> <input id='dispensa_form_" + index_btn + "_1' type='file' class='form-control text-center' style='display: none;'><input type='button' value='Browse' onclick=document.getElementById('dispensa_form_" + index_btn + "_1').click(); /></form><input type='text' id='dispensa_text_" + index_btn + "_1' class='form-control text-center' readOnly='true'></form></div><div style='float:right'><input type='button' align='right' value='Aggiungi dispensa' onclick=addDispensa('" + index_btn + "')></div>";
         testRow.innerHTML     = "<center><div><br><a href='#' class='log-top btn btn-general btn-green' data-toggle='modal' data-target='#login-modal'>Gestione Test</a></div> </center>";
-		//testRow.innerHTML     = "<center><div><br><input type='button' id='test_button_" + index + "' class='btn btn-general btn-green' value='Gestione Test'></div> </center>";
-		saveRow.innerHTML     = "<center><br><button id='save_btn_" + index + "' class='btn btn-general btn-green'>Save</button></center>"
+		//testRow.innerHTML     = "<center><div><br><input type='button' id='test_button_" + index_btn + "' class='btn btn-general btn-green' value='Gestione Test'></div> </center>";
+		saveRow.innerHTML     = "<center><br><button id='save_btn_" + index_btn + "' class='btn btn-general btn-green'>Save</button></center>"
 		
 		examsList.push( new examClass( exam, 1, 1 ) );
 		
-		document.getElementById( "dispensa_form_" + index + "_1" ).onchange = function () {
-			let dispensa_text = document.getElementById( "dispensa_text_" + index + "_" + 1 );
+		document.getElementById( "dispensa_form_" + index_btn + "_1" ).onchange = function () {
+			let dispensa_text = document.getElementById( "dispensa_text_" + index_btn + "_" + 1 );
   			dispensa_text["value"] = this.value.split(/(\\|\/)/g).pop();
 		};
-		
-		/*let test_button = document.getElementById( 'test_button_' + index );
-		test_button.addEventListener( "click", function() {
-			$.ajax({
-				url:"http://localhost:8080/Project2/testExam",
-				type:'GET',
-				success:function( data, textStatus, jqXHR ) {
-					// access response data
-					console.log( "RICEVUTA LA VIEW: " + data );
-				},
-				error:function( data, textStatus, jqXHR ) {
-					console.log( 'Service call failed!' );
-				}
-			});
-		});*/
 		
 		let idx_video = 0;
 		let idx_note  = 0;
@@ -273,25 +260,24 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 			let type = material["type"];
 			if (type.localeCompare( "V" ) == 0) {
 				if (idx_video == 0) {
-					let video_adder = document.getElementById( "video_form_" + index + "_" + 1 );
+					let video_adder = document.getElementById( "video_form_" + index_btn + "_" + 1 );
 					video_adder.value = name;
 					idx_video = 1;
 				} else {
-					addVideo( index, name );
+					addVideo( index_btn, name );
 				}
 			} else {
 				if (idx_note == 0) {
-					let note_adder = document.getElementById( "dispensa_text_" + index + "_" + 1 );
+					let note_adder = document.getElementById( "dispensa_text_" + index_btn + "_" + 1 );
 					note_adder.value = name;
 					idx_note = 1;
 				} else {
-					addDispensa( index, name );
+					addDispensa( index_btn, name );
 				}
 			}
 		}
 		
-		let index_btn = index;
-		let save_btn1 = document.getElementById( 'save_btn_' + index );
+		let save_btn1 = document.getElementById( 'save_btn_' + index_btn );
 		save_btn1.addEventListener( "click", function() {
 			let exam = examsList[index_btn - 1];
 			
@@ -579,15 +565,19 @@ License URL: https://creativecommons.org/licenses/by/4.0/
 	
 	//let jsonUser = '<%= request.getAttribute( "user" ) %>';
 	//let user = JSON.parse( jsonUser );
-	let questions = user["exam_list"][0]["question_list"];
-	console.log( questions );
-	if (questions.length == 0) {
-		// Add an empty question.
-		addQuestion();
-	} else {
-		for (let q of questions) {
-			addFilledQuestion( q["question"], q["weight"], q["answer1"], q["answer2"],
-							   q["answer3"], q["answer4"], q["correct_answer"] );
+	console.log( user );
+	
+	for (_exam of exams) {
+	    let questions = _exam["question_list"];
+	    console.log( "EXAM: " + _exam + ", QUESTIONS: " + questions );
+	 	if (questions.length == 0) {
+			// Add an empty question.
+			addQuestion();
+		} else {
+			for (let q of questions) {
+				addFilledQuestion( q["question"], q["weight"], q["answer1"], q["answer2"],
+								   q["answer3"], q["answer4"], q["correct_answer"] );
+			}
 		}
 	}
 	
